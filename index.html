@@ -3,597 +3,2243 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Aadhar Seva Kendra, Parsoli - Aadhaar, eMitra and CSC citizen services.">
-<title>Aadhar Seva Kendra | Parsoli</title>
+
+<title>Aadhaar Seva Kendra | Digital Services</title>
+
+<meta name="description"
+content="Aadhaar, e-Mitra और CSC से संबंधित डिजिटल एवं नागरिक सेवाएं एक ही स्थान पर।">
+
 <style>
-:root{
-  --navy:#081b66;
-  --blue:#07549d;
-  --cyan:#18b8dc;
-  --ink:#111536;
-  --muted:#50546b;
-  --line:#e2e5ec;
-  --bg:#f7f9fc;
-  --white:#fff;
-  --orange:#f59b38;
-  --green:#168a4b;
-  --shadow:0 2px 8px rgba(20,35,80,.13);
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--ink);
-  background:#fff;
-}
-a{text-decoration:none;color:inherit}
-button,input,select,textarea{font:inherit}
-
-/* Government-portal inspired header */
-.gov-top{
-  height:74px;
-  background:#fff;
-  border-bottom:1px solid #e4e4e4;
-}
-.gov-top .inner{
-  max-width:1250px;
-  height:100%;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 18px;
-}
-.gov-brand{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-.emblem{
-  width:42px;height:52px;
-  position:relative;
-  display:grid;place-items:center;
-  color:#333;
-}
-.emblem:before{
-  content:"✦";
-  font-size:39px;
-  font-weight:900;
-  color:#444;
-  transform:scaleX(.72);
-}
-.gov-title{
-  font-size:23px;
-  font-weight:700;
-  color:#1476a9;
-}
-.aadhaar-logo{
-  text-align:center;
-  color:#e84438;
-  font-weight:900;
-  line-height:.85;
-}
-.aadhaar-logo .mark{
-  font-size:31px;
-  letter-spacing:-8px;
-  display:block;
-}
-.aadhaar-logo small{
-  font-size:10px;
-  letter-spacing:.3px;
-}
-.gov-language{font-size:13px;color:#2c3270;font-weight:700}
-
-/* Blue portal bar */
-.portalbar{
-  background:linear-gradient(90deg,#090d5d 0%,#07539a 52%,#19b7d8 100%);
-  color:#fff;
-  height:44px;
-}
-.portalbar .inner{
-  max-width:1250px;
-  height:100%;
-  margin:auto;
-  padding:0 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.portal-brand{
-  font-size:17px;
-  font-weight:800;
-  display:flex;
-  gap:9px;
-  align-items:center;
-}
-.portal-brand .grid{
-  display:grid;
-  grid-template-columns:repeat(2,8px);
-  gap:3px;
-}
-.portal-brand .grid i{
-  width:8px;height:8px;background:#fff;border-radius:2px;display:block;
-}
-.portal-right{font-size:13px}
-
-/* local site navigation */
-.localnav{
-  height:48px;
-  border-bottom:1px solid #e7e9ee;
-  background:#fff;
-}
-.localnav .inner{
-  max-width:1250px;margin:auto;height:100%;padding:0 18px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.local-links{display:flex;gap:28px;font-size:13px;font-weight:700;color:#17205b}
-.local-links a:hover{color:#0876b5}
-.actions{display:flex;gap:9px}
-.action{
-  border:1px solid #222a72;background:#fff;color:#202567;
-  border-radius:5px;padding:7px 13px;font-size:12px;font-weight:800;
-}
-.action.primary{background:var(--orange);border-color:var(--orange);color:#fff}
-
-/* Intro strip */
-.page-title{
-  text-align:center;
-  padding:17px 15px 9px;
-  font-size:18px;
-  font-weight:800;
-  color:#111;
-}
-.page-sub{
-  text-align:center;
-  color:#666a7a;
-  font-size:12px;
-  margin-bottom:14px;
+    font-family:Arial, "Noto Sans Devanagari", sans-serif;
+    background:#f5f8fc;
+    color:#17324d;
+    line-height:1.6;
 }
 
-/* Service cards */
-.service-area{
-  max-width:1250px;
-  margin:auto;
-  padding:0 18px 38px;
+a{
+    text-decoration:none;
+    color:inherit;
 }
-.group-title{
-  text-align:center;
-  font-size:15px;
-  font-weight:800;
-  margin:17px 0 11px;
-  color:#121212;
-}
-.cards{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-.card{
-  min-height:174px;
-  background:#fff;
-  border:1px solid #e4e5e9;
-  border-radius:7px;
-  box-shadow:var(--shadow);
-  padding:14px 15px 12px;
-  transition:.18s ease;
-  position:relative;
-}
-.card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 7px 18px rgba(20,35,80,.16);
-  border-color:#b9c8df;
-}
-.icon{
-  width:54px;height:54px;
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:10px;
-  color:#08236e;
-  font-size:32px;
-  font-weight:700;
-}
-.icon .box{
-  width:45px;height:34px;
-  border:3px solid #0b2371;
-  border-radius:5px;
-  position:relative;
-}
-.icon .box:after{
-  content:"";
-  position:absolute;
-  width:15px;height:9px;
-  border:2px solid #18a6cf;
-  right:5px;top:8px;border-radius:2px;
-}
-.icon .box:before{
-  content:"";
-  position:absolute;
-  left:5px;top:8px;width:11px;height:11px;
-  border-radius:50%;background:#18a6cf;
-}
-.card h3{
-  margin:0 0 7px;
-  font-size:16px;
-  line-height:1.18;
-  color:#111;
-}
-.card p{
-  margin:0;
-  color:#171a23;
-  font-size:12px;
-  line-height:1.4;
-}
-.card p .free{color:#e22b27;font-weight:800}
-.card .card-link{
-  display:inline-block;
-  margin-top:10px;
-  color:#06599e;
-  font-size:11px;
-  font-weight:800;
-}
-.card .appointment{
-  position:absolute;
-  right:13px;
-  bottom:12px;
-  border:0;
-  background:#0b2371;
-  color:#fff;
-  padding:6px 9px;
-  border-radius:4px;
-  font-size:10px;
-  font-weight:800;
-}
-.card.featured{border-top:3px solid var(--orange)}
-.card.featured .appointment{background:var(--orange)}
 
-/* Secondary sections */
+button,
+input{
+    font-family:inherit;
+}
+
+.container{
+    width:min(1180px, 92%);
+    margin:auto;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    background:#063b82;
+    color:white;
+    font-size:14px;
+}
+
+.topbar-inner{
+    min-height:42px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.topbar-left{
+    font-weight:500;
+}
+
+.topbar-right{
+    display:flex;
+    gap:20px;
+}
+
+.topbar-right span{
+    opacity:.95;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    background:white;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.header-inner{
+    min-height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+.brand-text h1{
+    font-size:23px;
+    color:#064a9b;
+    line-height:1.2;
+}
+
+.brand-text p{
+    color:#6b7785;
+    font-size:13px;
+    margin-top:3px;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:27px;
+}
+
+.nav a{
+    font-weight:600;
+    color:#193653;
+    transition:.2s;
+}
+
+.nav a:hover{
+    color:#0868c7;
+}
+
+.nav-btn{
+    background:#0868c7;
+    color:white !important;
+    padding:10px 18px;
+    border-radius:7px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:510px;
+    position:relative;
+    overflow:hidden;
+    background:
+        linear-gradient(90deg,
+        rgba(4,55,117,.96) 0%,
+        rgba(8,84,160,.90) 48%,
+        rgba(11,104,184,.65) 100%);
+    color:white;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 80% 25%, rgba(255,255,255,.14), transparent 25%),
+        radial-gradient(circle at 20% 90%, rgba(255,255,255,.08), transparent 30%);
+}
+
+.hero-inner{
+    min-height:510px;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    align-items:center;
+    gap:50px;
+    position:relative;
+    z-index:2;
+}
+
+.hero-content{
+    padding:55px 0;
+}
+
+.hero-badge{
+    display:inline-block;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.25);
+    padding:7px 14px;
+    border-radius:30px;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.hero h2{
+    font-size:48px;
+    line-height:1.15;
+    margin-bottom:20px;
+}
+
+.hero h2 span{
+    color:#ffd43b;
+}
+
+.hero-description{
+    font-size:18px;
+    max-width:650px;
+    color:#e9f3ff;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:13px 21px;
+    border-radius:7px;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:white;
+    color:#0753a0;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.6);
+    color:white;
+    background:transparent;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:#0753a0;
+}
+
+
+/* HERO CARD */
+
+.hero-card{
+    background:white;
+    color:#17324d;
+    border-radius:18px;
+    padding:35px;
+    box-shadow:0 20px 45px rgba(0,0,0,.20);
+}
+
+.hero-logo{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.hero-logo img{
+    width:145px;
+    height:145px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+.hero-card h3{
+    text-align:center;
+    color:#0753a0;
+    font-size:23px;
+    margin-bottom:8px;
+}
+
+.hero-card p{
+    text-align:center;
+    color:#657486;
+}
+
+.hero-info{
+    margin-top:25px;
+    border-top:1px solid #e7edf4;
+    padding-top:20px;
+}
+
+.hero-info div{
+    padding:7px 0;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-section{
+    margin-top:-30px;
+    position:relative;
+    z-index:5;
+}
+
+.search-box{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 8px 30px rgba(0,0,0,.12);
+    display:flex;
+    gap:10px;
+}
+
+.search-box input{
+    flex:1;
+    border:1px solid #d5dee8;
+    border-radius:7px;
+    padding:14px 16px;
+    outline:none;
+    font-size:15px;
+}
+
+.search-box input:focus{
+    border-color:#0875d1;
+}
+
+.search-btn{
+    background:#0753a0;
+    color:white;
+    border:none;
+    border-radius:7px;
+    padding:0 24px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
 .section{
-  border-top:1px solid #e7e9ee;
-  background:#fff;
-  padding:28px 18px;
+    padding:75px 0;
 }
-.section .wrap{max-width:1250px;margin:auto}
-.section h2{
-  margin:0 0 6px;
-  text-align:center;
-  font-size:21px;
-  color:#111;
-}
-.section .lead{text-align:center;color:#666b7c;font-size:12px;margin-bottom:18px}
-.service-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:13px;
-}
-.service-box{
-  border:1px solid #e2e4ea;border-radius:7px;padding:17px;background:#fff;box-shadow:var(--shadow)
-}
-.service-box h3{font-size:15px;margin:0 0 6px}
-.service-box p{font-size:11px;color:#666b7c;margin:0 0 10px}
-.service-box ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.service-box li{font-size:11px;color:#303447}
-.service-box li:before{content:"✓";color:#138a4d;font-weight:900;margin-right:5px}
 
-/* Contact/footer */
-.contact{
-  background:linear-gradient(100deg,#07145d,#07539a);
-  color:#fff;padding:28px 18px;
+.section-header{
+    text-align:center;
+    margin-bottom:40px;
 }
-.contact .wrap{max-width:1250px;margin:auto;display:flex;justify-content:space-between;gap:25px;align-items:center}
-.contact h2{margin:0 0 5px;font-size:22px}
-.contact p{margin:0;color:#d8e7f6;font-size:12px;max-width:800px}
-.contact-info{margin-top:9px;display:flex;flex-wrap:wrap;gap:14px;font-size:11px}
-.contact-actions{display:flex;gap:8px;white-space:nowrap}
-.contact-actions a{padding:10px 14px;border-radius:5px;font-size:11px;font-weight:800}
-.whatsapp{background:#159b55;color:#fff}
-.call{background:#fff;color:#1c266b}
-footer{background:#07133f;color:#bdc7dc;padding:20px 18px 10px}
-footer .wrap{max-width:1250px;margin:auto}
-.footergrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:28px}
-footer h3{color:#fff;font-size:13px;margin:0 0 7px}
-footer p,footer li{font-size:10px;line-height:1.7;margin:0}
-footer ul{list-style:none;padding:0;margin:0}
-.copy{border-top:1px solid #25315f;margin-top:13px;padding-top:9px;font-size:9px;color:#8995b3;display:flex;justify-content:space-between}
 
-/* Appointment modal */
-.modal{
-  position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:1000;
-  display:none;align-items:center;justify-content:center;padding:18px;
+.section-header .small-title{
+    color:#0872c9;
+    font-weight:bold;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
-.modal.show{display:flex}
-.modalbox{
-  width:min(460px,100%);background:#fff;border-radius:9px;padding:22px;
-  box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative
-}
-.close{
-  position:absolute;right:10px;top:10px;width:30px;height:30px;border:0;
-  border-radius:50%;background:#edf0f6;color:#20265e;font-size:18px
-}
-.modalbox h2{font-size:21px;margin:0 0 4px;color:#101650}
-.modalbox p{font-size:11px;color:#6a6e80;margin:0 0 14px}
-.form{display:grid;gap:9px}
-.form label{font-size:11px;font-weight:800;color:#252a4e}
-.form input,.form select,.form textarea{
-  display:block;width:100%;margin-top:4px;border:1px solid #d9dce5;border-radius:5px;
-  padding:9px;outline:0
-}
-.form textarea{min-height:70px;resize:vertical}
-.submit{border:0;background:#0b2371;color:#fff;border-radius:5px;padding:10px;font-weight:800}
-.note{text-align:center;color:#777b8d;font-size:9px}
 
-/* mobile */
+.section-header h2{
+    font-size:34px;
+    color:#123a60;
+    margin:7px 0;
+}
+
+.section-header p{
+    color:#6d7c8c;
+    max-width:700px;
+    margin:auto;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.quick-card{
+    background:white;
+    border:1px solid #e1e9f1;
+    border-radius:12px;
+    padding:22px;
+    text-align:center;
+    transition:.25s;
+}
+
+.quick-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(0,0,0,.09);
+}
+
+.quick-icon{
+    width:54px;
+    height:54px;
+    margin:auto auto 12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eaf4ff;
+    border-radius:50%;
+    font-size:25px;
+}
+
+.quick-card h3{
+    font-size:17px;
+    margin-bottom:5px;
+}
+
+.quick-card p{
+    font-size:13px;
+    color:#728091;
+}
+
+
+/* =========================================================
+   SERVICE CATEGORIES
+========================================================= */
+
+.services-section{
+    background:#eef5fb;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.category-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    border:1px solid #e1e9f1;
+    box-shadow:0 5px 18px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.category-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 15px 35px rgba(0,0,0,.10);
+}
+
+.category-top{
+    padding:25px;
+    color:white;
+}
+
+.aadhaar-top{
+    background:linear-gradient(135deg,#073c88,#0879d4);
+}
+
+.emitro-top{
+    background:linear-gradient(135deg,#057346,#13a567);
+}
+
+.csc-top{
+    background:linear-gradient(135deg,#6b2c91,#a34cc5);
+}
+
+.category-icon{
+    width:62px;
+    height:62px;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.category-top h3{
+    font-size:25px;
+}
+
+.category-top p{
+    opacity:.9;
+    font-size:14px;
+}
+
+.service-list{
+    padding:18px 23px 23px;
+}
+
+.service-list a{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:10px 0;
+    border-bottom:1px solid #edf1f5;
+    color:#314d68;
+    font-size:14px;
+}
+
+.service-list a:last-child{
+    border-bottom:none;
+}
+
+.service-list a:hover{
+    color:#0868c7;
+}
+
+.service-list a::before{
+    content:"✓";
+    color:#0a7bd4;
+    font-weight:bold;
+}
+
+
+/* =========================================================
+   POPULAR SERVICES
+========================================================= */
+
+.popular-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.popular-card{
+    background:white;
+    padding:24px;
+    border-radius:12px;
+    border:1px solid #e0e8f0;
+    transition:.25s;
+}
+
+.popular-card:hover{
+    border-color:#82b9e8;
+    box-shadow:0 10px 25px rgba(0,0,0,.07);
+}
+
+.popular-icon{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.popular-card h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.popular-card p{
+    font-size:13px;
+    color:#728091;
+}
+
+
+/* =========================================================
+   WHY US
+========================================================= */
+
+.why-section{
+    background:white;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.why-card{
+    padding:30px;
+    background:#f7fafc;
+    border-radius:14px;
+    border:1px solid #e5ebf1;
+}
+
+.why-number{
+    font-size:32px;
+    font-weight:bold;
+    color:#0871c8;
+}
+
+.why-card h3{
+    margin:5px 0;
+}
+
+.why-card p{
+    color:#6c7b8b;
+    font-size:14px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section{
+    background:#073b7d;
+    color:white;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.contact-section h2{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.contact-section p{
+    color:#dcecff;
+}
+
+.contact-buttons{
+    margin-top:25px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.call-btn{
+    background:#fff;
+    color:#0753a0;
+}
+
+.whatsapp-btn{
+    background:#20c66b;
+    color:white;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#062b59;
+    color:#cbd9e8;
+}
+
+.footer-main{
+    padding:45px 0 30px;
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-brand{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.footer-brand img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:13px;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    padding:5px 0;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding:16px 0;
+    text-align:center;
+    font-size:13px;
+}
+
+
+/* =========================================================
+   FLOATING BUTTONS
+========================================================= */
+
+.floating{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    z-index:2000;
+}
+
+.float-btn{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:22px;
+    box-shadow:0 5px 18px rgba(0,0,0,.2);
+}
+
+.float-whatsapp{
+    background:#20c66b;
+}
+
+.float-call{
+    background:#0875d1;
+}
+
+
+/* =========================================================
+   POPUP
+========================================================= */
+
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.68);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:9999;
+}
+
+.popup-overlay.show{
+    display:flex;
+}
+
+.popup{
+    width:min(500px,100%);
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+    position:relative;
+    animation:popupIn .3s ease;
+}
+
+@keyframes popupIn{
+    from{
+        transform:scale(.85);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.popup-header{
+    background:linear-gradient(135deg,#06448f,#087ad5);
+    color:white;
+    text-align:center;
+    padding:28px;
+}
+
+.popup-header h2{
+    font-size:25px;
+}
+
+.popup-body{
+    padding:28px;
+    text-align:center;
+}
+
+.popup-body img{
+    width:110px;
+    height:110px;
+    object-fit:contain;
+    border-radius:50%;
+    margin-bottom:12px;
+}
+
+.popup-body h3{
+    color:#06448f;
+    font-size:22px;
+}
+
+.popup-body p{
+    color:#687788;
+    margin:8px 0 20px;
+}
+
+.popup-close{
+    position:absolute;
+    top:10px;
+    right:12px;
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    background:#e92727;
+    color:white;
+    font-size:21px;
+    cursor:pointer;
+    z-index:3;
+}
+
+.popup-contact{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
 @media(max-width:900px){
-  .cards{grid-template-columns:repeat(2,1fr)}
-  .gov-title{font-size:18px}.brand-sub{display:none}
+
+    .hero-inner{
+        grid-template-columns:1fr;
+        padding:40px 0;
+    }
+
+    .hero{
+        min-height:auto;
+    }
+
+    .hero-inner{
+        min-height:auto;
+    }
+
+    .hero-content{
+        padding:20px 0 10px;
+    }
+
+    .hero h2{
+        font-size:38px;
+    }
+
+    .category-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quick-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .popular-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr 1fr;
+    }
+
 }
+
 @media(max-width:650px){
-  .gov-top{height:62px}.gov-title{font-size:14px}.gov-brand{gap:8px}.emblem{width:30px}
-  .aadhaar-logo{display:none}
-  .portalbar{height:42px}
-  .localnav{height:auto}.localnav .inner{overflow:auto;gap:15px}
-  .local-links{gap:18px;white-space:nowrap;padding:9px 0}
-  .actions{display:none}
-  .page-title{font-size:16px}.cards,.service-grid{grid-template-columns:1fr}
-  .card{min-height:160px}
-  .contact .wrap{display:block}.contact-actions{margin-top:13px}
-  .footergrid{grid-template-columns:1fr}
-  .copy{display:block}.copy span{display:block;margin-top:4px}
+
+    .topbar-inner{
+        justify-content:center;
+        text-align:center;
+    }
+
+    .topbar-right{
+        display:none;
+    }
+
+    .header-inner{
+        min-height:72px;
+    }
+
+    .logo{
+        width:52px;
+        height:52px;
+    }
+
+    .brand-text h1{
+        font-size:18px;
+    }
+
+    .brand-text p{
+        font-size:11px;
+    }
+
+    .nav{
+        display:none;
+    }
+
+    .hero h2{
+        font-size:31px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .hero-card{
+        padding:25px;
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+    .search-btn{
+        padding:13px;
+    }
+
+    .quick-grid,
+    .popular-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section{
+        padding:55px 0;
+    }
+
+    .section-header h2{
+        font-size:28px;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr;
+    }
+
+    .contact-section h2{
+        font-size:28px;
+    }
+
 }
+
+
+/* =========================================================
+   SEARCH HIGHLIGHT
+========================================================= */
+
+.hidden-service{
+    display:none !important;
+}
+
+.no-result{
+    display:none;
+    text-align:center;
+    padding:25px;
+    color:#687788;
+}
+
 </style>
 </head>
+
+
 <body>
 
-<!-- Top authority-style header -->
-<div class="gov-top">
-  <div class="inner">
-    <div class="gov-brand">
-      <div class="emblem" aria-hidden="true">✦</div>
-      <div class="gov-title">Aadhar Seva Kendra</div>
+
+<!-- =======================================================
+     TOP BAR
+======================================================= -->
+
+<div class="topbar">
+    <div class="container topbar-inner">
+
+        <div class="topbar-left">
+            आधार से संबंधित सेवाएं एवं डिजिटल सेवाएं
+        </div>
+
+        <div class="topbar-right">
+            <span>📍 Parsoli, Rajasthan</span>
+            <span>📞 7742041717</span>
+        </div>
+
     </div>
-    <div class="aadhaar-logo">
-      <span class="mark">⌁⌁⌁</span>
-      <small>AADHAAR</small>
-    </div>
-    <div class="gov-language">अ / English⌄</div>
-  </div>
 </div>
 
-<div class="portalbar">
-  <div class="inner">
-    <div class="portal-brand">
-      <span class="grid"><i></i><i></i><i></i><i></i></span>
-      myAadhaar Services
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header class="header">
+
+    <div class="container header-inner">
+
+        <a href="#home" class="brand">
+
+            <img
+                src="logo.png"
+                alt="Aadhaar Seva Kendra Logo"
+                class="logo"
+            >
+
+            <div class="brand-text">
+                <h1>Aadhaar Seva Kendra</h1>
+                <p>Aadhaar • e-Mitra • CSC Digital Services</p>
+            </div>
+
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="#home">होम</a>
+
+            <a href="#services">सेवाएं</a>
+
+            <a href="#popular">लोकप्रिय सेवाएं</a>
+
+            <a href="#about">हमारे बारे में</a>
+
+            <a href="#contact" class="nav-btn">
+                संपर्क करें
+            </a>
+
+        </nav>
+
     </div>
-    <div class="portal-right">Citizen Services • Parsoli</div>
-  </div>
+
+</header>
+
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-inner">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                आपका स्थानीय डिजिटल सेवा केंद्र
+            </div>
+
+            <h2>
+                Aadhaar, e-Mitra & CSC
+                <br>
+                <span>सेवाएं, अब आपके पास</span>
+            </h2>
+
+            <p class="hero-description">
+                Aadhaar, e-Mitra और CSC से संबंधित विभिन्न
+                डिजिटल एवं नागरिक सेवाओं के लिए हमारे केंद्र से
+                संपर्क करें।
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="tel:+917742041717"
+                    class="btn btn-primary"
+                >
+                    📞 अभी कॉल करें
+                </a>
+
+                <a
+                    href="https://wa.me/917742041717"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-outline"
+                >
+                    💬 WhatsApp
+                </a>
+
+                <a
+                    href="#services"
+                    class="btn btn-outline"
+                >
+                    सभी सेवाएं देखें ↓
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="hero-logo">
+
+                <img
+                    src="logo.png"
+                    alt="Aadhaar Seva Kendra"
+                >
+
+            </div>
+
+            <h3>Aadhaar Seva Kendra</h3>
+
+            <p>
+                Digital Service Centre
+            </p>
+
+            <div class="hero-info">
+
+                <div>🪪 Aadhaar Services</div>
+
+                <div>🏢 e-Mitra Services</div>
+
+                <div>💻 CSC Services</div>
+
+                <div>📍 Parsoli, Rajasthan</div>
+
+                <div>📞 7742041717</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     SEARCH
+======================================================= -->
+
+<div class="search-section">
+
+    <div class="container">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="serviceSearch"
+                placeholder="सेवा खोजें... जैसे Aadhaar, PAN, Bill Payment, CSC"
+            >
+
+            <button
+                class="search-btn"
+                onclick="searchServices()"
+            >
+                🔎 Search
+            </button>
+
+        </div>
+
+    </div>
+
 </div>
 
-<nav class="localnav">
-  <div class="inner">
-    <div class="local-links">
-      <a href="#">Home</a>
-      <a href="#aadhaar">Aadhaar Services⌄</a>
-      <a href="#emitra">eMitra</a>
-      <a href="#csc">CSC</a>
-      <a href="#contact">Contact</a>
+
+
+<!-- =======================================================
+     QUICK ACTIONS
+======================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="small-title">
+                Quick Access
+            </div>
+
+            <h2>त्वरित सेवाएं</h2>
+
+            <p>
+                सबसे अधिक उपयोग की जाने वाली सेवाओं तक जल्दी पहुंचें।
+            </p>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+            <a href="#aadhaar" class="quick-card service-item">
+
+                <div class="quick-icon">🪪</div>
+
+                <h3>Aadhaar Services</h3>
+
+                <p>
+                    Aadhaar से संबंधित सेवाएं
+                </p>
+
+            </a>
+
+
+            <a href="#emit" class="quick-card service-item">
+
+                <div class="quick-icon">🏢</div>
+
+                <h3>e-Mitra Services</h3>
+
+                <p>
+                    राजस्थान की नागरिक सेवाएं
+                </p>
+
+            </a>
+
+
+            <a href="#csc" class="quick-card service-item">
+
+                <div class="quick-icon">💻</div>
+
+                <h3>CSC Services</h3>
+
+                <p>
+                    डिजिटल एवं सरकारी सेवाएं
+                </p>
+
+            </a>
+
+
+            <a href="#contact" class="quick-card service-item">
+
+                <div class="quick-icon">📞</div>
+
+                <h3>Contact Centre</h3>
+
+                <p>
+                    सेवा की जानकारी के लिए संपर्क करें
+                </p>
+
+            </a>
+
+        </div>
+
     </div>
-    <div class="actions">
-      <button class="action primary" onclick="openAppointment()">Only Appointment</button>
-      <button class="action" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Help</button>
-    </div>
-  </div>
-</nav>
 
-<section id="aadhaar">
-  <div class="page-title">Aadhaar Services</div>
-  <div class="page-sub">Aadhaar related citizen assistance at Aadhar Seva Kendra, Parsoli</div>
-
-  <div class="service-area">
-    <div class="group-title">Services that require mobile number to be registered with Aadhaar</div>
-    <div class="cards">
-
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Download Aadhaar</h3>
-        <p>Click here to get your digitally signed and password protected electronic copy of the Aadhaar.</p>
-        <button class="appointment" onclick="openAppointment('Aadhaar Download')">Appointment</button>
-      </article>
-
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Mobile Number Update</h3>
-        <p>Assistance for updating the mobile number registered with Aadhaar.</p>
-        <button class="appointment" onclick="openAppointment('Mobile Number Update')">Appointment</button>
-      </article>
-
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Mail ID Update</h3>
-        <p>Assistance for updating or verifying the email ID associated with Aadhaar.</p>
-        <button class="appointment" onclick="openAppointment('Mail ID Update')">Appointment</button>
-      </article>
-
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Address Update</h3>
-        <p>Assistance for Aadhaar address update and related document requirements.</p>
-        <button class="appointment" onclick="openAppointment('Address Update')">Appointment</button>
-      </article>
-
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Document Update</h3>
-        <p>Assistance for uploading or updating identity and address documents.</p>
-        <button class="appointment" onclick="openAppointment('Document Update')">Appointment</button>
-      </article>
-
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>0–5 New Enrollment</h3>
-        <p>New Aadhaar enrolment assistance for children in the 0–5 age group.</p>
-        <button class="appointment" onclick="openAppointment('0–5 New Enrollment')">Appointment</button>
-      </article>
-
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Aadhaar Card Find</h3>
-        <p>Assistance for finding Aadhaar details and related citizen service guidance.</p>
-        <button class="appointment" onclick="openAppointment('Aadhaar Card Find')">Appointment</button>
-      </article>
-
-      <article class="card featured">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Aadhaar Card PVC Print</h3>
-        <p>High quality Aadhaar PVC card printing assistance at the centre.</p>
-        <button class="appointment" onclick="openAppointment('Aadhaar Card PVC Print')">Appointment</button>
-      </article>
-    </div>
-
-    <div class="group-title">Services that can be availed even if mobile number is not registered with Aadhaar</div>
-    <div class="cards">
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Check Aadhaar PVC card order status</h3>
-        <p>Assistance for checking the status of an already ordered PVC card.</p>
-        <button class="appointment" onclick="openAppointment('Aadhaar PVC Order Status')">Appointment</button>
-      </article>
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Check enrolment or update status</h3>
-        <p>Assistance for checking the status of an enrolment or update request.</p>
-        <button class="appointment" onclick="openAppointment('Enrolment or Update Status')">Appointment</button>
-      </article>
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Locate enrolment centre</h3>
-        <p>Get assistance to search and locate nearby Aadhaar Seva Kendras.</p>
-        <button class="appointment" onclick="openAppointment('Locate Enrolment Centre')">Appointment</button>
-      </article>
-      <article class="card">
-        <div class="icon"><div class="box"></div></div>
-        <h3>Book an appointment</h3>
-        <p>Book an appointment with our centre through WhatsApp.</p>
-        <button class="appointment" onclick="openAppointment('General Appointment')">Book</button>
-      </article>
-    </div>
-  </div>
 </section>
 
-<section id="emitra" class="section">
-  <div class="wrap">
-    <h2>eMitra Services</h2>
-    <div class="lead">Rajasthan citizen and digital services assistance</div>
-    <div class="service-grid">
-      <div class="service-box"><h3>Government & Citizen Services</h3><p>Online applications and citizen service assistance.</p><ul><li>Certificates</li><li>Online Forms</li><li>Application Help</li><li>Status Assistance</li></ul></div>
-      <div class="service-box"><h3>Bill & Utility Services</h3><p>Everyday utility payment and recharge assistance.</p><ul><li>Electricity Bill</li><li>Water Bill</li><li>Mobile Recharge</li><li>Other Utilities</li></ul></div>
-      <div class="service-box"><h3>Print, Scan & Documents</h3><p>Digital document support for online services.</p><ul><li>Print & Scan</li><li>Photo Services</li><li>Document Upload</li><li>Application Support</li></ul></div>
+
+
+<!-- =======================================================
+     SERVICES
+======================================================= -->
+
+<section class="section services-section" id="services">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="small-title">
+                Our Services
+            </div>
+
+            <h2>हमारी प्रमुख सेवाएं</h2>
+
+            <p>
+                Aadhaar, e-Mitra और CSC की अलग-अलग सेवाएं
+                एक ही स्थान पर।
+            </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+            <!-- ================= AADHAAR ================= -->
+
+            <div
+                class="category-card service-item"
+                id="aadhaar"
+                data-search="aadhaar आधार enrollment enrolment update biometric mobile address name dob"
+            >
+
+                <div class="category-top aadhaar-top">
+
+                    <div class="category-icon">
+                        🪪
+                    </div>
+
+                    <h3>Aadhaar Services</h3>
+
+                    <p>
+                        आधार से संबंधित सेवाएं
+                    </p>
+
+                </div>
+
+
+                <div class="service-list">
+
+                    <a href="#contact">
+                        Aadhaar New Enrolment
+                    </a>
+
+                    <a href="#contact">
+                        Aadhaar Name Update
+                    </a>
+
+                    <a href="#contact">
+                        Aadhaar Address Update
+                    </a>
+
+                    <a href="#contact">
+                        Mobile Number Update
+                    </a>
+
+                    <a href="#contact">
+                        Date of Birth Update
+                    </a>
+
+                    <a href="#contact">
+                        Gender Update
+                    </a>
+
+                    <a href="#contact">
+                        Biometric Update
+                    </a>
+
+                    <a href="#contact">
+                        Aadhaar Document Update
+                    </a>
+
+                    <a href="#contact">
+                        Aadhaar Print
+                    </a>
+
+                    <a href="#contact">
+                        Aadhaar Related Assistance
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= E-MITRA ================= -->
+
+            <div
+                class="category-card service-item"
+                id="emit"
+                data-search="emit emitra राजस्थान bill payment electricity water mobile recharge pan certificate application"
+            >
+
+                <div class="category-top emitro-top">
+
+                    <div class="category-icon">
+                        🏢
+                    </div>
+
+                    <h3>e-Mitra Services</h3>
+
+                    <p>
+                        राजस्थान नागरिक सेवाएं
+                    </p>
+
+                </div>
+
+
+                <div class="service-list">
+
+                    <a href="#contact">
+                        बिजली बिल भुगतान
+                    </a>
+
+                    <a href="#contact">
+                        पानी बिल भुगतान
+                    </a>
+
+                    <a href="#contact">
+                        मोबाइल रिचार्ज
+                    </a>
+
+                    <a href="#contact">
+                        ऑनलाइन आवेदन
+                    </a>
+
+                    <a href="#contact">
+                        प्रमाण पत्र आवेदन
+                    </a>
+
+                    <a href="#contact">
+                        जन आधार संबंधित सेवाएं
+                    </a>
+
+                    <a href="#contact">
+                        पेंशन संबंधित सेवाएं
+                    </a>
+
+                    <a href="#contact">
+                        सरकारी योजनाओं के आवेदन
+                    </a>
+
+                    <a href="#contact">
+                        ऑनलाइन फीस भुगतान
+                    </a>
+
+                    <a href="#contact">
+                        e-Mitra संबंधित सहायता
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= CSC ================= -->
+
+            <div
+                class="category-card service-item"
+                id="csc"
+                data-search="csc digital seva pan banking insurance ayushman pension education government"
+            >
+
+                <div class="category-top csc-top">
+
+                    <div class="category-icon">
+                        💻
+                    </div>
+
+                    <h3>CSC Services</h3>
+
+                    <p>
+                        Common Service Centre
+                    </p>
+
+                </div>
+
+
+                <div class="service-list">
+
+                    <a href="#contact">
+                        PAN Card Services
+                    </a>
+
+                    <a href="#contact">
+                        Banking Services
+                    </a>
+
+                    <a href="#contact">
+                        Insurance Services
+                    </a>
+
+                    <a href="#contact">
+                        Pension Services
+                    </a>
+
+                    <a href="#contact">
+                        Ayushman Bharat Related Services
+                    </a>
+
+                    <a href="#contact">
+                        Digital Seva Services
+                    </a>
+
+                    <a href="#contact">
+                        Government Scheme Assistance
+                    </a>
+
+                    <a href="#contact">
+                        Online Form Services
+                    </a>
+
+                    <a href="#contact">
+                        Education Related Services
+                    </a>
+
+                    <a href="#contact">
+                        CSC Related Assistance
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
     </div>
-  </div>
+
 </section>
 
-<section id="csc" class="section" style="background:#f7f9fc">
-  <div class="wrap">
-    <h2>CSC Services</h2>
-    <div class="lead">Common Service Centre related citizen assistance</div>
-    <div class="service-grid">
-      <div class="service-box"><h3>Digital Seva Assistance</h3><p>Online citizen applications and digital service assistance.</p><ul><li>Online Applications</li><li>Print / Scan</li><li>Document Upload</li><li>Digital Help</li></ul></div>
-      <div class="service-box"><h3>Banking & Financial Help</h3><p>Assistance for available CSC banking and financial services.</p><ul><li>Banking Assistance</li><li>AEPS Assistance</li><li>Insurance Help</li><li>Pension Services</li></ul></div>
-      <div class="service-box"><h3>Education & Other Services</h3><p>Digital education and other citizen service assistance.</p><ul><li>Education Forms</li><li>Exam Forms</li><li>Certificate Help</li><li>Online Services</li></ul></div>
+
+
+<!-- =======================================================
+     POPULAR SERVICES
+======================================================= -->
+
+<section class="section" id="popular">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="small-title">
+                Popular Services
+            </div>
+
+            <h2>लोकप्रिय सेवाएं</h2>
+
+            <p>
+                हमारे केंद्र पर उपलब्ध प्रमुख डिजिटल सेवाएं।
+            </p>
+
+        </div>
+
+
+        <div class="popular-grid">
+
+
+            <div
+                class="popular-card service-item"
+                data-search="aadhaar update आधार update"
+            >
+
+                <div class="popular-icon">🪪</div>
+
+                <h3>Aadhaar Update</h3>
+
+                <p>
+                    Aadhaar में उपलब्ध जानकारी के अपडेट से संबंधित सहायता।
+                </p>
+
+            </div>
+
+
+            <div
+                class="popular-card service-item"
+                data-search="pan card pan कार्ड"
+            >
+
+                <div class="popular-icon">💳</div>
+
+                <h3>PAN Card</h3>
+
+                <p>
+                    PAN से संबंधित ऑनलाइन सेवा एवं आवेदन सहायता।
+                </p>
+
+            </div>
+
+
+            <div
+                class="popular-card service-item"
+                data-search="bill payment बिजली पानी bill"
+            >
+
+                <div class="popular-icon">💡</div>
+
+                <h3>Bill Payment</h3>
+
+                <p>
+                    उपलब्ध बिल भुगतान सेवाओं के लिए संपर्क करें।
+                </p>
+
+            </div>
+
+
+            <div
+                class="popular-card service-item"
+                data-search="banking banking service बैंक"
+            >
+
+                <div class="popular-icon">🏦</div>
+
+                <h3>Banking Services</h3>
+
+                <p>
+                    उपलब्ध CSC/e-Mitra banking सेवाओं की जानकारी।
+                </p>
+
+            </div>
+
+
+            <div
+                class="popular-card service-item"
+                data-search="insurance बीमा"
+            >
+
+                <div class="popular-icon">🛡️</div>
+
+                <h3>Insurance</h3>
+
+                <p>
+                    उपलब्ध बीमा सेवाओं से संबंधित सहायता।
+                </p>
+
+            </div>
+
+
+            <div
+                class="popular-card service-item"
+                data-search="pension पेंशन"
+            >
+
+                <div class="popular-icon">👴</div>
+
+                <h3>Pension Services</h3>
+
+                <p>
+                    पेंशन से संबंधित उपलब्ध सेवाओं के लिए संपर्क करें।
+                </p>
+
+            </div>
+
+
+            <div
+                class="popular-card service-item"
+                data-search="government scheme सरकारी योजना"
+            >
+
+                <div class="popular-icon">🏛️</div>
+
+                <h3>Government Schemes</h3>
+
+                <p>
+                    विभिन्न सरकारी योजनाओं की ऑनलाइन सहायता।
+                </p>
+
+            </div>
+
+
+            <div
+                class="popular-card service-item"
+                data-search="online form ऑनलाइन फॉर्म"
+            >
+
+                <div class="popular-icon">📝</div>
+
+                <h3>Online Forms</h3>
+
+                <p>
+                    विभिन्न ऑनलाइन फॉर्म एवं आवेदन में सहायता।
+                </p>
+
+            </div>
+
+
+        </div>
+
+        <div class="no-result" id="noResult">
+            कोई सेवा नहीं मिली। कृपया दूसरा शब्द खोजें।
+        </div>
+
     </div>
-  </div>
+
 </section>
 
-<section id="contact" class="contact">
-  <div class="wrap">
-    <div>
-      <h2>Aadhar Seva Kendra</h2>
-      <p>Owner: Mayank Sisodiya • Near Bank Of Baroda, Parsoli, Tehsil Begun, Dist. Chittorgarh, Rajasthan</p>
-      <div class="contact-info">
-        <span>📞 7742041717</span>
-        <span>WhatsApp: 7742041717</span>
-      </div>
+
+
+<!-- =======================================================
+     ABOUT / WHY US
+======================================================= -->
+
+<section class="section why-section" id="about">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="small-title">
+                Why Choose Us
+            </div>
+
+            <h2>हमसे क्यों जुड़ें?</h2>
+
+            <p>
+                डिजिटल सेवाओं के लिए एक सुविधाजनक स्थानीय सेवा केंद्र।
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+            <div class="why-card">
+
+                <div class="why-number">
+                    01
+                </div>
+
+                <h3>एक ही स्थान पर सेवाएं</h3>
+
+                <p>
+                    Aadhaar, e-Mitra और CSC से संबंधित
+                    विभिन्न सेवाओं की जानकारी एक ही जगह।
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-number">
+                    02
+                </div>
+
+                <h3>डिजिटल सुविधा</h3>
+
+                <p>
+                    ऑनलाइन आवेदन और डिजिटल सेवाओं में
+                    आवश्यक सहायता प्रदान की जाती है।
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-number">
+                    03
+                </div>
+
+                <h3>स्थानीय सहायता</h3>
+
+                <p>
+                    सेवा की जानकारी के लिए सीधे हमारे
+                    केंद्र से संपर्क कर सकते हैं।
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
-    <div class="contact-actions">
-      <a class="whatsapp" href="https://wa.me/917742041717" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="call" href="tel:7742041717">Call Now</a>
-    </div>
-  </div>
+
 </section>
+
+
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
+
+<section class="section contact-section" id="contact">
+
+    <div class="container contact-grid">
+
+        <div>
+
+            <div class="small-title">
+                Contact Us
+            </div>
+
+            <h2>
+                किसी सेवा की जानकारी चाहिए?
+            </h2>
+
+            <p>
+                Aadhaar, e-Mitra या CSC की किसी भी उपलब्ध
+                सेवा के बारे में जानकारी के लिए हमसे संपर्क करें।
+            </p>
+
+            <div class="contact-buttons">
+
+                <a
+                    href="tel:+917742041717"
+                    class="btn call-btn"
+                >
+                    📞 7742041717
+                </a>
+
+                <a
+                    href="https://wa.me/917742041717"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn whatsapp-btn"
+                >
+                    💬 WhatsApp पर संपर्क करें
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <div class="hero-info">
+
+                <div>📍 <strong>स्थान:</strong> Parsoli, Rajasthan</div>
+
+                <div>📞 <strong>मोबाइल:</strong> 7742041717</div>
+
+                <div>🪪 <strong>Services:</strong> Aadhaar</div>
+
+                <div>🏢 <strong>Services:</strong> e-Mitra</div>
+
+                <div>💻 <strong>Services:</strong> CSC</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
-  <div class="wrap">
-    <div class="footergrid">
-      <div><h3>Aadhar Seva Kendra</h3><p>Parsoli, Begun, Chittorgarh, Rajasthan.</p><p>Independent service centre information and appointment assistance website.</p></div>
-      <div><h3>Quick Links</h3><ul><li><a href="#aadhaar">Aadhaar Services</a></li><li><a href="#emitra">eMitra Services</a></li><li><a href="#csc">CSC Services</a></li></ul></div>
-      <div><h3>Contact</h3><ul><li>Mayank Sisodiya</li><li>7742041717</li><li>Parsoli, Rajasthan</li></ul></div>
+
+    <div class="container footer-main">
+
+
+        <div>
+
+            <div class="footer-brand">
+
+                <img
+                    src="logo.png"
+                    alt="Logo"
+                >
+
+                <div>
+
+                    <h3>Aadhaar Seva Kendra</h3>
+
+                    <small>
+                        Aadhaar • e-Mitra • CSC
+                    </small>
+
+                </div>
+
+            </div>
+
+            <p>
+                डिजिटल एवं नागरिक सेवाओं की जानकारी और
+                सहायता के लिए हमारा सेवा केंद्र।
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li>
+                    <a href="#home">होम</a>
+                </li>
+
+                <li>
+                    <a href="#services">सेवाएं</a>
+                </li>
+
+                <li>
+                    <a href="#popular">लोकप्रिय सेवाएं</a>
+                </li>
+
+                <li>
+                    <a href="#contact">संपर्क</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>Contact</h3>
+
+            <ul>
+
+                <li>📍 Parsoli, Rajasthan</li>
+
+                <li>📞 7742041717</li>
+
+                <li>
+                    <a href="https://wa.me/917742041717"
+                       target="_blank">
+                        💬 WhatsApp
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
     </div>
-    <div class="copy"><span>© <span id="year"></span> Aadhar Seva Kendra</span><span>Not the official UIDAI website.</span></div>
-  </div>
+
+
+    <div class="footer-bottom">
+
+        © <span id="year"></span>
+        Aadhaar Seva Kendra.
+        All Rights Reserved.
+
+    </div>
+
 </footer>
 
-<div class="modal" id="modal">
-  <div class="modalbox">
-    <button class="close" onclick="closeAppointment()">×</button>
-    <h2>Only Appointment</h2>
-    <p>Details भरें और WhatsApp पर appointment request भेजें।</p>
-    <form class="form" onsubmit="sendAppointment(event)">
-      <label>Name<input id="name" required placeholder="आपका नाम"></label>
-      <label>Mobile Number<input id="mobile" required pattern="[0-9]{10}" inputmode="numeric" placeholder="10 digit mobile number"></label>
-      <label>Service
-        <select id="service" required>
-          <option value="">Select Service</option>
-          <option>0–5 New Enrollment</option>
-          <option>Mobile Number Update</option>
-          <option>Mail ID Update</option>
-          <option>Address Update</option>
-          <option>Aadhaar Download</option>
-          <option>Document Update</option>
-          <option>Aadhaar Card Find</option>
-          <option>Aadhaar Card PVC Print</option>
-          <option>eMitra Service</option>
-          <option>CSC Service</option>
-        </select>
-      </label>
-      <label>Preferred Date<input id="date" type="date" required></label>
-      <label>Requirement<textarea id="message" placeholder="कोई अतिरिक्त जानकारी"></textarea></label>
-      <button class="submit">Continue on WhatsApp</button>
-      <div class="note">WhatsApp: 7742041717</div>
-    </form>
-  </div>
+
+
+<!-- =======================================================
+     FLOATING BUTTONS
+======================================================= -->
+
+<div class="floating">
+
+    <a
+        href="https://wa.me/917742041717"
+        target="_blank"
+        rel="noopener"
+        class="float-btn float-whatsapp"
+        title="WhatsApp"
+    >
+        💬
+    </a>
+
+    <a
+        href="tel:+917742041717"
+        class="float-btn float-call"
+        title="Call"
+    >
+        📞
+    </a>
+
 </div>
 
-<script>
-document.getElementById('year').textContent=new Date().getFullYear();
-function openAppointment(service=''){
-  document.getElementById('modal').classList.add('show');
-  document.body.style.overflow='hidden';
-  if(service) document.getElementById('service').value=service;
-}
-function closeAppointment(){
-  document.getElementById('modal').classList.remove('show');
-  document.body.style.overflow='';
-}
-document.getElementById('modal').addEventListener('click',e=>{
-  if(e.target.id==='modal') closeAppointment();
-});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape') closeAppointment();
-});
-function sendAppointment(e){
-  e.preventDefault();
-  const name=document.getElementById('name').value.trim();
-  const mobile=document.getElementById('mobile').value.trim();
-  const service=document.getElementById('service').value;
-  const date=document.getElementById('date').value;
-  const message=document.getElementById('message').value.trim()||'N/A';
-  const text=
-`Aadhar Seva Kendra - Appointment Request
 
-Name: ${name}
-Mobile: ${mobile}
-Service: ${service}
-Preferred Date: ${date}
-Requirement: ${message}`;
-  window.open('https://wa.me/917742041717?text='+encodeURIComponent(text),'_blank','noopener');
+
+<!-- =======================================================
+     WELCOME POPUP
+======================================================= -->
+
+<div
+    class="popup-overlay"
+    id="welcomePopup"
+>
+
+    <div class="popup">
+
+        <button
+            class="popup-close"
+            onclick="closePopup()"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <div class="popup-header">
+
+            <h2>
+                Aadhaar Seva Kendra
+            </h2>
+
+            <p>
+                Digital Service Centre
+            </p>
+
+        </div>
+
+
+        <div class="popup-body">
+
+            <img
+                src="logo.png"
+                alt="Aadhaar Seva Kendra Logo"
+            >
+
+            <h3>
+                हमारी सेवाओं की जानकारी के लिए संपर्क करें
+            </h3>
+
+            <p>
+                Aadhaar • e-Mitra • CSC
+            </p>
+
+
+            <div class="popup-contact">
+
+                <a
+                    href="tel:+917742041717"
+                    class="btn btn-primary"
+                >
+                    📞 Call Now
+                </a>
+
+                <a
+                    href="https://wa.me/917742041717"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn whatsapp-btn"
+                >
+                    💬 WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
+<script>
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+
+/* =========================================================
+   POPUP
+========================================================= */
+
+function openPopup(){
+
+    const popup =
+        document.getElementById("welcomePopup");
+
+    if(popup){
+        popup.classList.add("show");
+    }
+
 }
+
+
+function closePopup(){
+
+    const popup =
+        document.getElementById("welcomePopup");
+
+    if(popup){
+        popup.classList.remove("show");
+    }
+
+}
+
+
+/* Popup automatically opens after 1.5 seconds */
+
+window.addEventListener("load", function(){
+
+    setTimeout(function(){
+
+        openPopup();
+
+    },1500);
+
+});
+
+
+/* Close popup when clicking outside */
+
+document.getElementById("welcomePopup")
+.addEventListener("click", function(event){
+
+    if(event.target === this){
+
+        closePopup();
+
+    }
+
+});
+
+
+/* Close popup using Escape key */
+
+document.addEventListener("keydown", function(event){
+
+    if(event.key === "Escape"){
+
+        closePopup();
+
+    }
+
+});
+
+
+
+/* =========================================================
+   SERVICE SEARCH
+========================================================= */
+
+function searchServices(){
+
+    const input =
+        document.getElementById("serviceSearch");
+
+    const query =
+        input.value.trim().toLowerCase();
+
+    const cards =
+        document.querySelectorAll(".service-item");
+
+    const noResult =
+        document.getElementById("noResult");
+
+    let found = 0;
+
+
+    if(query === ""){
+
+        cards.forEach(function(card){
+
+            card.classList.remove("hidden-service");
+
+        });
+
+        noResult.style.display = "none";
+
+        return;
+
+    }
+
+
+    cards.forEach(function(card){
+
+        const text =
+            card.innerText.toLowerCase();
+
+        const data =
+            (card.getAttribute("data-search") || "")
+            .toLowerCase();
+
+        if(
+            text.includes(query) ||
+            data.includes(query)
+        ){
+
+            card.classList.remove("hidden-service");
+
+            found++;
+
+        }else{
+
+            card.classList.add("hidden-service");
+
+        }
+
+    });
+
+
+    if(found === 0){
+
+        noResult.style.display = "block";
+
+    }else{
+
+        noResult.style.display = "none";
+
+    }
+
+}
+
+
+/* Search while typing */
+
+document.getElementById("serviceSearch")
+.addEventListener("input", searchServices);
+
+
+/* Enter key */
+
+document.getElementById("serviceSearch")
+.addEventListener("keydown", function(event){
+
+    if(event.key === "Enter"){
+
+        searchServices();
+
+    }
+
+});
+
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+document.querySelectorAll('a[href^="#"]')
+.forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        const target =
+            this.getAttribute("href");
+
+        if(target === "#"){
+
+            return;
+
+        }
+
+        const element =
+            document.querySelector(target);
+
+        if(element){
+
+            setTimeout(function(){
+
+                element.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+
+            },50);
+
+        }
+
+    });
+
+});
+
 </script>
+
 </body>
 </html>
