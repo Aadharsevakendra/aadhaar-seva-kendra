@@ -56,6 +56,223 @@ footer{background:var(--dark);color:#dce8f2;padding:30px 6%;text-align:center}.q
     <div class="offer-flag">🇮🇳</div>
 
     <div class="offer-text">
+      <div class="offer-small">
+        🇮🇳 स्वतंत्रता दिवस विशेष ऑफर 🇮🇳
+      </div>
+
+      <h2>0 से 5 वर्ष तक के बच्चों का</h2>
+
+      <div class="offer-free">
+        नया आधार कार्ड <span>बिल्कुल FREE!</span>
+      </div>
+
+      <div class="offer-date">
+        📅 10 अगस्त से 15 अगस्त तक
+      </div>
+
+      <p>
+        आधार सेवा केंद्र पारसोली • मुकेश कुमार
+      </p>
+    </div>
+
+    <a href="tel:7742041717" class="offer-call">
+      📞 अभी संपर्क करें
+      <small>7742041717</small>
+    </a>
+
+  </div>
+</div>
+
+<style>
+.independence-offer {
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    #ff7a00 0%,
+    #ffffff 48%,
+    #138808 100%
+  );
+  padding: 14px 18px;
+  border-bottom: 4px solid #ff6f00;
+  box-shadow: 0 4px 15px rgba(0,0,0,.18);
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+
+.offer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.offer-flag {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.offer-text {
+  text-align: center;
+}
+
+.offer-small {
+  color: #333;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.offer-text h2 {
+  margin: 0;
+  color: #222;
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+.offer-free {
+  font-size: 25px;
+  font-weight: 800;
+  color: #d71920;
+  margin: 3px 0;
+  line-height: 1.25;
+}
+
+.offer-free span {
+  color: #138808;
+}
+
+.offer-date {
+  display: inline-block;
+  background: #138808;
+  color: #fff;
+  padding: 5px 13px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.offer-text p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #333;
+}
+
+.offer-call {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  background: #d71920;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  white-space: nowrap;
+}
+
+.offer-call small {
+  margin-top: 3px;
+  font-size: 13px;
+}
+
+@media (max-width: 650px) {
+
+  .independence-offer {
+    padding: 12px 8px;
+  }
+
+  .offer-content {
+    gap: 8px;
+  }
+
+  .offer-flag {
+    font-size: 30px;
+  }
+
+  .offer-small {
+    font-size: 11px;
+  }
+
+  .offer-text h2 {
+    font-size: 15px;
+  }
+
+  .offer-free {
+    font-size: 17px;
+  }
+
+  .offer-date {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .offer-text p {
+    font-size: 9px;
+  }
+
+  .offer-call {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .offer-call small {
+    font-size: 9px;
+  }
+}
+</style>
+
+<script>
+(function () {
+
+  const offer = document.getElementById("independenceOffer");
+
+  if (!offer) return;
+
+  const today = new Date();
+
+  const year = today.getFullYear();
+
+  const start = new Date(year, 7, 10, 0, 0, 0);
+
+  const end = new Date(year, 7, 15, 23, 59, 59);
+
+  /*
+    10 अगस्त से 15 अगस्त:
+    Banner दिखाई देगा।
+
+    10 अगस्त से पहले:
+    अभी testing के लिए Banner दिखाई देगा।
+
+    15 अगस्त के बाद:
+    Banner अपने आप hide हो जाएगा।
+  */
+
+  const showBeforeStart = today < start;
+
+  const showDuringOffer =
+    today >= start && today <= end;
+
+  if (showBeforeStart || showDuringOffer) {
+    offer.style.display = "block";
+  } else {
+    offer.style.display = "none";
+  }
+
+})();
+</script>
+  <!-- 🇮🇳 स्वतंत्रता दिवस विशेष ऑफर बैनर -->
+<div id="independenceOffer" class="independence-offer">
+  <div class="offer-content">
+
+    <div class="offer-flag">🇮🇳</div>
+
+    <div class="offer-text">
       <div class="offer-small">🇮🇳 स्वतंत्रता दिवस विशेष ऑफर 🇮🇳</div>
 
       <h2>0 से 5 वर्ष तक के बच्चों का</h2>
