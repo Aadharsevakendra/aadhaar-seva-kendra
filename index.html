@@ -2396,6 +2396,236 @@ document.querySelectorAll('a[href^="#"]')
 });
 
 </script>
+<!-- ================= OFFER POPUP ================= -->
 
+<div id="offerPopup" class="offer-popup">
+
+    <div class="popup-box">
+
+        <button class="popup-close" onclick="closeOfferPopup()">
+            ×
+        </button>
+
+        <div class="popup-flag">🇮🇳</div>
+
+        <div class="popup-small">
+            स्वतंत्रता दिवस विशेष ऑफर
+        </div>
+
+        <div class="popup-title">
+            10 अगस्त से 15 अगस्त तक
+        </div>
+
+        <div class="popup-age">
+            0 से 5 वर्ष तक के बच्चों का
+        </div>
+
+        <div class="popup-free">
+            नया आधार कार्ड<br>
+            <span>बिल्कुल FREE!</span>
+        </div>
+
+        <div class="popup-center">
+            <b>आधार सेवा केंद्र</b><br>
+            विशेष ऑफर
+        </div>
+
+        <a href="tel:+917742041717" class="popup-call">
+            📞 अभी संपर्क करें
+            <span>7742041717</span>
+        </a>
+
+    </div>
+
+</div>
+
+<style>
+/* ================= POPUP ================= */
+
+.offer-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.72);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.offer-popup.show {
+    display: flex;
+}
+
+.popup-box {
+    width: min(520px, 100%);
+    position: relative;
+    text-align: center;
+    padding: 35px 25px 28px;
+    border-radius: 22px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9933 0%,
+            #fff 48%,
+            #fff 52%,
+            #138808 100%
+        );
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    border: 4px solid white;
+}
+
+.popup-close {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #e31b23;
+    color: white;
+
+    font-size: 28px;
+    line-height: 35px;
+
+    cursor: pointer;
+    font-weight: bold;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+.popup-flag {
+    font-size: 35px;
+    margin-bottom: 4px;
+}
+
+.popup-small {
+    color: #14213d;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.popup-title {
+    color: #138808;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 8px;
+}
+
+.popup-age {
+    color: #111;
+    font-size: 21px;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.popup-free {
+    color: #d71920;
+    font-size: 27px;
+    font-weight: 900;
+    line-height: 1.25;
+    margin: 8px 0;
+}
+
+.popup-free span {
+    color: #138808;
+}
+
+.popup-center {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 12px 0 18px;
+}
+
+.popup-call {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #e31b23;
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 30px;
+    border-radius: 40px;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+.popup-call span {
+    font-size: 15px;
+    margin-top: 3px;
+}
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .popup-box {
+        padding: 30px 15px 22px;
+    }
+
+    .popup-title {
+        font-size: 17px;
+    }
+
+    .popup-age {
+        font-size: 18px;
+    }
+
+    .popup-free {
+        font-size: 23px;
+    }
+
+    .popup-center {
+        font-size: 14px;
+    }
+
+}
+</style>
+
+<script>
+/* ================= POPUP SCRIPT ================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const popup = document.getElementById("offerPopup");
+
+    // 1.5 second बाद popup खुलेगा
+    setTimeout(function () {
+        popup.classList.add("show");
+    }, 1500);
+
+});
+
+/* Close button */
+function closeOfferPopup() {
+    document.getElementById("offerPopup").classList.remove("show");
+}
+
+/* Popup के बाहर click करने पर भी बंद */
+document.addEventListener("click", function(event) {
+
+    const popup = document.getElementById("offerPopup");
+
+    if (event.target === popup) {
+        closeOfferPopup();
+    }
+
+});
+</script>
 </body>
 </html>
