@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aadharsevakendra.github.io/aadhaar-seva-kendra/sitemap.xml
