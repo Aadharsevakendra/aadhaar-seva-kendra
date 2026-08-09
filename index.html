@@ -1,538 +1,1796 @@
+```html
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Aadhar Seva Kendra, Parsoli, Begun, Chittorgarh - UIDAI Authorised Aadhaar Enrolment & Update Centre, eMitra and CSC citizen services.">
-<title>Aadhar Seva Kendra | Citizen Services Portal</title>
+
+<title>Aadhar Seva Kendra | Parsoli</title>
+
 <style>
-:root{
-  --primary:#0757a0;--primary-dark:#063b70;--accent:#f28c28;--green:#159447;
-  --navy:#102b43;--text:#263746;--muted:#6b7b8c;--bg:#f5f8fb;--white:#fff;
-  --border:#e5ebf1;--shadow:0 14px 45px rgba(16,43,67,.10);--radius:18px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}
-a{text-decoration:none;color:inherit}
-.topbar{background:var(--navy);color:#fff;font-size:13px}
-.topbar .wrap{max-width:1240px;margin:auto;padding:8px 24px;display:flex;justify-content:space-between;gap:15px}
-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav{max-width:1240px;margin:auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--navy)}
-.brand-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:3px solid var(--accent);position:relative;color:var(--primary);font-size:20px;background:#fff}
-.brand-mark:after{content:"";position:absolute;width:8px;height:8px;background:var(--accent);border-radius:50%;top:-5px;right:5px}
-.brand small{display:block;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.3px}
-nav ul{display:flex;list-style:none;gap:24px;align-items:center}
-nav a{font-size:14px;font-weight:800;color:var(--navy);transition:.2s}
-nav a:hover{color:var(--primary)}
-.nav-cta{background:var(--primary);color:#fff!important;padding:10px 15px;border-radius:9px}
-.menu-btn{display:none;border:0;background:var(--primary);color:#fff;border-radius:9px;padding:9px 12px;font-size:20px}
-.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#eef7ff 0%,#fff 57%,#fff6eb 100%);padding:78px 24px 74px}
-.hero:before{content:"";position:absolute;width:420px;height:420px;border:70px solid rgba(7,87,160,.045);border-radius:50%;right:-160px;top:-180px}
-.hero-inner{position:relative;max-width:1240px;margin:auto;display:grid;grid-template-columns:1.18fr .82fr;gap:60px;align-items:center}
-.badge{display:inline-flex;align-items:center;gap:7px;background:#e7f3ff;color:var(--primary);padding:8px 14px;border-radius:30px;font-weight:900;font-size:12px;letter-spacing:.2px}
-.hero h1{font-size:clamp(42px,5vw,70px);line-height:1.02;color:var(--navy);margin:18px 0}
-.hero h1 span{color:var(--primary)}
-.hero p{font-size:18px;color:var(--muted);max-width:700px}
-.actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;border-radius:10px;font-weight:900;border:2px solid transparent;cursor:pointer;transition:.2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--primary);color:#fff}
-.btn-green{background:var(--green);color:#fff}
-.btn-outline{border-color:var(--primary);color:var(--primary);background:#fff}
-.hero-card{background:rgba(255,255,255,.92);border:1px solid #e3ebf2;border-radius:24px;padding:28px;box-shadow:var(--shadow)}
-.hero-card h3{font-size:21px;color:var(--navy);margin-bottom:8px}
-.info-row{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid #edf1f4}
-.info-row:last-child{border-bottom:0}
-.icon{width:38px;height:38px;border-radius:10px;background:#edf6ff;color:var(--primary);display:grid;place-items:center;flex:none}
-.trust{background:var(--primary);color:#fff;padding:19px 24px}
-.trust-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.trust-item{text-align:center;font-weight:800;padding:8px}
-section{padding:76px 24px}
-.container{max-width:1240px;margin:auto}
-.section-head{text-align:center;max-width:760px;margin:0 auto 38px}
-.section-head h2{font-size:36px;line-height:1.15;color:var(--navy);margin-bottom:9px}
-.section-head p{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:23px;box-shadow:0 5px 22px rgba(16,43,67,.055);transition:.25s;position:relative;overflow:hidden}
-.card:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));opacity:0;transition:.2s}
-.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.card:hover:before{opacity:1}
-.card h3{color:var(--navy);font-size:18px;margin:13px 0 7px}
-.card p{color:var(--muted);font-size:14px}
-.card ul{list-style:none;margin-top:12px}
-.card li{padding:6px 0;border-bottom:1px dashed #e6ebef;font-size:14px}
-.card li:last-child{border:0}
-.card li::before{content:"✓";color:var(--green);font-weight:900;margin-right:8px}
-.alt{background:var(--bg)}
-.service-search{max-width:650px;margin:0 auto 30px}
-.service-search input{width:100%;padding:14px 17px;border:1px solid #ccd8e2;border-radius:11px;font-size:16px;outline:none;background:#fff;box-shadow:0 5px 15px rgba(16,43,67,.04)}
-.service-search input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(7,87,160,.08)}
-.notice{background:#fff7e8;border:1px solid #f5dfb6;border-left:5px solid var(--accent);padding:15px 18px;border-radius:11px;margin-top:24px;color:#60471f}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
-.about-box{background:var(--bg);padding:30px;border-radius:20px}
-.checklist{list-style:none;margin-top:15px}
-.checklist li{margin:10px 0}.checklist li::before{content:"✓";color:var(--green);font-weight:900;margin-right:10px}
-.docs{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-.doc{padding:22px;background:#fff;border:1px solid var(--border);border-radius:14px;text-align:center}
-.doc strong{display:block;margin-top:8px;color:var(--navy)}
-.doc span{font-size:13px;color:var(--muted)}
-.faq{max-width:880px;margin:auto}
-details{background:#fff;border:1px solid var(--border);border-radius:11px;margin:10px 0;padding:16px 19px}
-summary{cursor:pointer;font-weight:850;color:var(--navy)}
-details p{color:var(--muted);margin-top:10px}
-.contact{background:var(--navy);color:#fff}
-.contact h2{font-size:38px;margin-bottom:10px}
-.contact p{color:#d8e4ec}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
-.contact-card{background:#fff;color:var(--text);padding:27px;border-radius:20px;box-shadow:var(--shadow)}
-footer{background:#091e2e;color:#d6e1e9;padding:28px 24px;text-align:center;font-size:13px}
-.floating{position:fixed;right:18px;bottom:18px;z-index:999;display:flex;flex-direction:column;gap:9px}
-.float-btn{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:0 7px 20px rgba(0,0,0,.22)}
-.wa{background:#18a957}.call{background:var(--primary)}
-.hidden{display:none!important}
-.modal{display:none;position:fixed;inset:0;background:rgba(5,24,40,.68);z-index:2000;padding:20px;align-items:center;justify-content:center}
-.modal.show{display:flex}
-.modal-box{width:min(620px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:20px;padding:29px;box-shadow:0 20px 60px rgba(0,0,0,.25);position:relative}
-.modal-box h2{color:var(--navy);margin-bottom:6px}
-.modal-box .sub{color:var(--muted);font-size:14px;margin-bottom:18px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.form-group{display:flex;flex-direction:column;gap:6px}
-.form-group.full{grid-column:1/-1}
-.form-group label{font-size:13px;font-weight:800;color:var(--navy)}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px;border:1px solid #ccd8e2;border-radius:9px;font:inherit;outline:none}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary)}
-.close-modal{position:absolute;right:16px;top:13px;border:0;background:#edf3f7;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer}
-.modal-note{background:#eef7ff;border-left:4px solid var(--primary);padding:12px;margin:16px 0;font-size:13px;color:#345}
-@media(max-width:1050px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .hero-inner{gap:35px}
-  nav ul{gap:14px}
+
+html{
+  scroll-behavior:smooth;
 }
+
+body{
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:#f4f7fa;
+  color:#243746;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:92%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* TOP BAR */
+.topbar{
+  background:#eef2f5;
+  color:#526575;
+  font-size:12px;
+  padding:7px 0;
+  border-bottom:1px solid #d9e1e7;
+}
+
+.topbar .container{
+  display:flex;
+  justify-content:space-between;
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  border-bottom:4px solid #f29a2e;
+}
+
+.header{
+  min-height:85px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.logo{
+  width:58px;
+  height:58px;
+  border:3px solid #075b9d;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#075b9d;
+  font-size:25px;
+  font-weight:900;
+  background:#f7fbfe;
+}
+
+.logo-text h1{
+  color:#092b49;
+  font-size:23px;
+  line-height:1.1;
+}
+
+.logo-text p{
+  color:#647889;
+  font-size:11px;
+  font-weight:600;
+}
+
+.header-contact{
+  text-align:right;
+}
+
+.header-contact strong{
+  color:#092b49;
+  display:block;
+}
+
+.call-btn{
+  display:inline-block;
+  margin-top:5px;
+  background:#075b9d;
+  color:white;
+  padding:7px 13px;
+  border-radius:5px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* NAVIGATION */
+nav{
+  background:#092b49;
+  color:white;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.nav ul{
+  display:flex;
+  list-style:none;
+}
+
+.nav li a{
+  display:block;
+  padding:14px 17px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.nav li a:hover{
+  background:#075b9d;
+}
+
+.appointment-nav{
+  background:#f29a2e !important;
+  color:#172d40 !important;
+}
+
+.menu{
+  display:none;
+  border:0;
+  background:none;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(110deg,#092b49,#075b9d);
+  color:#fff;
+  padding:60px 0;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.5fr .7fr;
+  gap:40px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 12px;
+  border:1px solid rgba(255,255,255,.4);
+  border-radius:5px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.hero h2{
+  font-size:44px;
+  line-height:1.1;
+  margin:16px 0;
+}
+
+.hero h2 span{
+  color:#ffd08d;
+}
+
+.hero p{
+  color:#dbeaf4;
+  font-size:15px;
+  max-width:650px;
+}
+
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+
+.btn{
+  display:inline-block;
+  border:0;
+  padding:12px 18px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.btn-orange{
+  background:#f29a2e;
+  color:#172d40;
+}
+
+.btn-green{
+  background:#159b4e;
+  color:white;
+}
+
+.btn-white{
+  background:white;
+  color:#075b9d;
+}
+
+.info-card{
+  background:white;
+  color:#243746;
+  padding:23px;
+  border-radius:10px;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.info-card h3{
+  color:#092b49;
+  border-bottom:1px solid #e1e8ed;
+  padding-bottom:10px;
+  margin-bottom:5px;
+}
+
+.info-row{
+  padding:10px 0;
+  border-bottom:1px solid #edf1f4;
+  font-size:13px;
+}
+
+.info-row:last-child{
+  border:0;
+}
+
+/* NOTICE */
+.notice{
+  background:white;
+  border-bottom:1px solid #dce5eb;
+}
+
+.notice-inner{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:48px;
+}
+
+.notice-label{
+  background:#f29a2e;
+  color:#172d40;
+  padding:6px 10px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.notice-text{
+  font-size:12px;
+  color:#617587;
+}
+
+/* SECTIONS */
+section{
+  padding:60px 0;
+}
+
+.alt{
+  background:#eaf3f8;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:32px;
+}
+
+.section-title small{
+  color:#075b9d;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.section-title h2{
+  color:#092b49;
+  font-size:30px;
+  margin:4px 0;
+}
+
+.section-title p{
+  color:#687d8d;
+  font-size:13px;
+}
+
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.service{
+  background:white;
+  border:1px solid #dce6ed;
+  border-radius:9px;
+  padding:20px;
+  transition:.2s;
+  position:relative;
+}
+
+.service:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(9,43,73,.1);
+  border-color:#aac9dc;
+}
+
+.service-icon{
+  width:42px;
+  height:42px;
+  background:#eaf5fc;
+  color:#075b9d;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+}
+
+.service h3{
+  color:#092b49;
+  font-size:16px;
+  margin:12px 0 5px;
+}
+
+.service p{
+  color:#687d8d;
+  font-size:12px;
+}
+
+/* CATEGORY */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.category{
+  background:white;
+  border:1px solid #dce6ed;
+  border-radius:9px;
+  overflow:hidden;
+}
+
+.category-head{
+  background:#092b49;
+  color:white;
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.category-head h3{
+  font-size:16px;
+}
+
+.category-body{
+  padding:17px;
+}
+
+.category-body ul{
+  list-style:none;
+}
+
+.category-body li{
+  font-size:13px;
+  padding:7px 0;
+  border-bottom:1px solid #edf1f4;
+}
+
+.category-body li:last-child{
+  border:0;
+}
+
+.category-body li:before{
+  content:"✓";
+  color:#159b4e;
+  font-weight:bold;
+  margin-right:8px;
+}
+
+/* INFORMATION */
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.panel{
+  background:white;
+  border:1px solid #dce6ed;
+  border-radius:9px;
+  padding:23px;
+}
+
+.panel h3{
+  color:#092b49;
+  margin-bottom:12px;
+}
+
+.panel ul{
+  list-style:none;
+}
+
+.panel li{
+  padding:8px 0;
+  border-bottom:1px dashed #dce4e9;
+  font-size:13px;
+}
+
+.panel li:before{
+  content:"✓";
+  color:#159b4e;
+  font-weight:bold;
+  margin-right:8px;
+}
+
+/* FAQ */
+.faq{
+  max-width:850px;
+  margin:auto;
+}
+
+details{
+  background:white;
+  border:1px solid #dce6ed;
+  border-radius:7px;
+  margin:9px 0;
+  padding:15px;
+}
+
+summary{
+  color:#092b49;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+details p{
+  color:#687d8d;
+  font-size:12px;
+  margin-top:8px;
+}
+
+/* CONTACT */
+.contact{
+  background:#092b49;
+  color:white;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:center;
+}
+
+.contact h2{
+  font-size:32px;
+}
+
+.contact p{
+  color:#d2e1eb;
+  font-size:14px;
+  margin:8px 0 20px;
+}
+
+.contact-card{
+  background:white;
+  color:#243746;
+  padding:23px;
+  border-radius:10px;
+}
+
+.contact-row{
+  padding:11px 0;
+  border-bottom:1px solid #e5ebef;
+  font-size:13px;
+}
+
+.contact-row:last-child{
+  border:0;
+}
+
+.contact-row strong{
+  color:#092b49;
+}
+
+/* FOOTER */
+footer{
+  background:#071d30;
+  color:#b9cad5;
+  border-top:4px solid #f29a2e;
+}
+
+.footer-grid{
+  padding:35px 0;
+  display:grid;
+  grid-template-columns:1.3fr .7fr .7fr;
+  gap:30px;
+}
+
+footer h3{
+  color:white;
+  font-size:15px;
+  margin-bottom:10px;
+}
+
+footer p,
+footer li{
+  font-size:12px;
+}
+
+footer ul{
+  list-style:none;
+}
+
+footer li{
+  padding:4px 0;
+}
+
+.copyright{
+  border-top:1px solid rgba(255,255,255,.1);
+  text-align:center;
+  padding:14px;
+  font-size:11px;
+}
+
+/* FLOATING BUTTONS */
+.floating{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  z-index:999;
+}
+
+.float{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:bold;
+  box-shadow:0 7px 20px rgba(0,0,0,.25);
+}
+
+.whatsapp{
+  background:#159b4e;
+}
+
+.phone{
+  background:#075b9d;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(4,25,42,.75);
+  z-index:2000;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:100%;
+  max-width:620px;
+  max-height:92vh;
+  overflow:auto;
+  background:white;
+  border-radius:10px;
+  padding:25px;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  right:14px;
+  top:12px;
+  border:0;
+  background:#edf2f5;
+  width:34px;
+  height:34px;
+  border-radius:5px;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.modal h2{
+  color:#092b49;
+}
+
+.modal-sub{
+  color:#687d8d;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.form-group.full{
+  grid-column:1/-1;
+}
+
+.form-group label{
+  color:#092b49;
+  font-size:12px;
+  font-weight:800;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:11px;
+  border:1px solid #cbd9e3;
+  border-radius:6px;
+  font:inherit;
+  font-size:13px;
+  outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:#075b9d;
+}
+
+.modal-note{
+  background:#edf6fc;
+  border-left:4px solid #075b9d;
+  padding:11px;
+  font-size:11px;
+  margin:15px 0;
+  color:#456173;
+}
+
+/* MOBILE */
 @media(max-width:900px){
-  .hero-inner,.about,.contact-grid{grid-template-columns:1fr}
-  .trust-grid{grid-template-columns:repeat(2,1fr)}
-  nav ul{display:none;position:absolute;left:0;right:0;top:72px;background:#fff;padding:18px 5%;flex-direction:column;align-items:flex-start;box-shadow:0 10px 20px rgba(0,0,0,.1)}
-  nav ul.open{display:flex}.menu-btn{display:block}
+
+  .header-contact{
+    display:none;
+  }
+
+  .hero-grid,
+  .contact-grid,
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .categories{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .nav{
+    position:relative;
+  }
+
+  .nav ul{
+    display:none;
+    position:absolute;
+    left:0;
+    right:0;
+    top:48px;
+    background:#092b49;
+    flex-direction:column;
+    z-index:1000;
+  }
+
+  .nav ul.open{
+    display:flex;
+  }
+
+  .nav li a{
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
 }
+
 @media(max-width:600px){
-  .topbar .wrap{flex-direction:column;text-align:center;gap:2px}
-  .nav{padding:11px 18px}.brand small{font-size:9px}
-  section{padding:55px 18px}.hero{padding:58px 18px}
-  .grid,.docs,.trust-grid{grid-template-columns:1fr}
-  .hero h1{font-size:43px}.hero p{font-size:16px}
-  .actions .btn{width:100%}
-  .section-head h2{font-size:30px}
-  .form-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}
+
+  .container{
+    width:94%;
+  }
+
+  .topbar .container{
+    display:block;
+    text-align:center;
+  }
+
+  .topbar .container span:last-child{
+    display:none;
+  }
+
+  .logo-text h1{
+    font-size:19px;
+  }
+
+  .logo-text p{
+    font-size:9px;
+  }
+
+  .logo{
+    width:48px;
+    height:48px;
+    font-size:20px;
+  }
+
+  .hero{
+    padding:45px 0;
+  }
+
+  .hero h2{
+    font-size:34px;
+  }
+
+  .buttons .btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full{
+    grid-column:auto;
+  }
+
+  section{
+    padding:48px 0;
+  }
+
+  .section-title h2{
+    font-size:27px;
+  }
 }
-</style<body>
-<div class="govbar">
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
   <div class="container">
     <span>Citizen Services Portal</span>
-    <span class="govlinks"><a href="#home">Skip to Main Content</a><a href="#contact">Contact</a><a href="#faq">FAQ</a></span>
+    <span>Helpdesk: 7742041717</span>
   </div>
 </div>
 
-<header class="main-header">
-  <div class="container header-main">
-    <a class="identity" href="#home">
-      <div class="identity-mark">A</div>
-      <div>
+<!-- HEADER -->
+<header>
+  <div class="container header">
+
+    <div class="logo-area">
+      <div class="logo">A</div>
+
+      <div class="logo-text">
         <h1>Aadhar Seva Kendra</h1>
         <p>UIDAI Authorised Aadhaar Enrolment &amp; Update Centre</p>
       </div>
-    </a>
-    <div class="header-actions">
-      <span class="header-phone">Helpline: 7742041717</span>
-      <a class="btn btn-blue" href="tel:+917742041717">☎ Call Now</a>
     </div>
+
+    <div class="header-contact">
+      <strong>Mayank Sisodiya</strong>
+      <a class="call-btn" href="tel:+917742041717">
+        ☎ 7742041717
+      </a>
+    </div>
+
   </div>
 </header>
 
-<nav class="navbar">
-  <div class="container nav-inner">
-    <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
-    <ul class="nav-list" id="navList">
-      <li><a class="active" href="#home">Home</a></li>
+<!-- NAVIGATION -->
+<nav>
+  <div class="container nav">
+
+    <button class="menu" onclick="toggleMenu()">☰</button>
+
+    <ul id="navMenu">
+      <li><a href="#home">Home</a></li>
       <li><a href="#aadhaar">Aadhaar Services</a></li>
       <li><a href="#emitra">eMitra</a></li>
       <li><a href="#csc">CSC Services</a></li>
       <li><a href="#documents">Documents</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a class="nav-appointment" href="javascript:void(0)" onclick="openAppointmentModal()">📅 Appointment</a></li>
+
+      <li>
+        <a class="appointment-nav"
+           href="javascript:void(0)"
+           onclick="openAppointment()">
+          📅 Appointment
+        </a>
+      </li>
     </ul>
+
   </div>
 </nav>
 
-<div class="noticebar">
+<!-- NOTICE -->
+<div class="notice">
   <div class="container notice-inner">
     <span class="notice-label">IMPORTANT</span>
-    <div class="notice-text">Aadhaar services, applicable charges and required documents are subject to current UIDAI rules and service availability.</div>
+
+    <span class="notice-text">
+      Aadhaar services, documents and applicable charges current UIDAI
+      rules एवं service availability के अनुसार होंगे.
+    </span>
   </div>
 </div>
 
-<main id="home">
-<section class="hero">
-  <div class="container hero-inner">
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <div class="container hero-grid">
+
     <div>
-      <div class="breadcrumb">Home / Citizen Services</div>
-      <span class="verified">✓ UIDAI AUTHORISED AADHAAR CENTRE</span>
-      <h2>Trusted Digital &amp; <span>Citizen Services</span></h2>
-      <p>Aadhaar services के साथ Rajasthan eMitra, CSC और digital citizen services के लिए एक professional service centre.</p>
-      <div class="hero-actions">
-        <a class="btn btn-orange" href="javascript:void(0)" onclick="openAppointmentModal()">📅 Book Appointment</a>
-        <a class="btn btn-green" href="https://wa.me/917742041717?text=Namaste%2C%20mujhe%20Aadhar%20Seva%20Kendra%20ki%20service%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener">💬 WhatsApp</a>
-        <a class="btn btn-light" href="#aadhaar">View Services</a>
+
+      <span class="badge">
+        ✓ UIDAI AUTHORISED AADHAAR CENTRE
+      </span>
+
+      <h2>
+        Trusted Digital &amp;
+        <span>Citizen Services</span>
+      </h2>
+
+      <p>
+        Aadhaar, Rajasthan eMitra, CSC और digital citizen services
+        के लिए आपका trusted local service centre.
+      </p>
+
+      <div class="buttons">
+
+        <button class="btn btn-orange"
+                onclick="openAppointment()">
+          📅 Book Appointment
+        </button>
+
+        <a class="btn btn-green"
+           href="https://wa.me/917742041717"
+           target="_blank">
+          💬 WhatsApp
+        </a>
+
+        <a class="btn btn-white" href="#aadhaar">
+          View Services
+        </a>
+
       </div>
+
     </div>
-    <div class="hero-card">
-      <div class="title">Centre Information</div>
-      <div class="detail"><span>👤</span><div><b>Owner</b><br>Mayank Sisodiya</div></div>
-      <div class="detail"><span>📞</span><div><b>Mobile / WhatsApp</b><br>7742041717</div></div>
-      <div class="detail"><span>📍</span><div><b>Address</b><br>Near Bank Of Baroda, Parsoli, Tehsil Begun, Dist. Chittorgarh, Rajasthan</div></div>
+
+    <div class="info-card">
+
+      <h3>Centre Information</h3>
+
+      <div class="info-row">
+        <strong>👤 Owner</strong><br>
+        Mayank Sisodiya
+      </div>
+
+      <div class="info-row">
+        <strong>📞 Mobile / WhatsApp</strong><br>
+        7742041717
+      </div>
+
+      <div class="info-row">
+        <strong>📍 Address</strong><br>
+        Near Bank Of Baroda, Parsoli,
+        Tehsil Begun, Dist. Chittorgarh,
+        Rajasthan
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
+<!-- AADHAAR SERVICES -->
 <section id="aadhaar">
+
   <div class="container">
+
     <div class="section-title">
-      <div class="eyebrow">AADHAAR SERVICES</div>
+      <small>AADHAAR SERVICES</small>
       <h2>Aadhaar Seva Kendra Services</h2>
-      <p>आपके centre पर उपलब्ध Aadhaar services की जानकारी.</p>
+      <p>
+        आपके centre पर उपलब्ध Aadhaar services.
+      </p>
     </div>
-    <div class="service-grid">
-      <article class="service-card"><span class="service-number">01</span><div class="service-icon">👶</div><h3>0–5 New Enrollment</h3><p>0 से 5 वर्ष के बच्चों के Aadhaar enrolment की सुविधा.</p></article>
-      <article class="service-card"><span class="service-number">02</span><div class="service-icon">📱</div><h3>Mobile Number Update</h3><p>Aadhaar में registered mobile number update.</p></article>
-      <article class="service-card"><span class="service-number">03</span><div class="service-icon">✉️</div><h3>Mail ID Update</h3><p>Aadhaar में email ID update की सुविधा.</p></article>
-      <article class="service-card"><span class="service-number">04</span><div class="service-icon">🏠</div><h3>Address Update</h3><p>Aadhaar address update में सहायता.</p></article>
-      <article class="service-card"><span class="service-number">05</span><div class="service-icon">⬇️</div><h3>Aadhaar Download</h3><p>Available Aadhaar download और print assistance.</p></article>
-      <article class="service-card"><span class="service-number">06</span><div class="service-icon">📄</div><h3>Document Update</h3><p>Aadhaar document update/submission assistance.</p></article>
-      <article class="service-card"><span class="service-number">07</span><div class="service-icon">🔎</div><h3>Aadhaar Card Find</h3><p>Aadhaar card/details finding assistance.</p></article>
-      <article class="service-card"><span class="service-number">08</span><div class="service-icon">🪪</div><h3>Aadhaar Card PVC Print</h3><p>Aadhaar PVC card print service.</p></article>
+
+    <div class="services">
+
+      <div class="service">
+        <div class="service-icon">👶</div>
+        <h3>0–5 New Enrollment</h3>
+        <p>
+          0 से 5 वर्ष के बच्चों के Aadhaar enrolment की सुविधा.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">📱</div>
+        <h3>Mobile Number Update</h3>
+        <p>
+          Aadhaar में registered mobile number update.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">✉️</div>
+        <h3>Mail ID Update</h3>
+        <p>
+          Aadhaar में email ID update की सुविधा.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">🏠</div>
+        <h3>Address Update</h3>
+        <p>
+          Aadhaar address update में सहायता.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">⬇️</div>
+        <h3>Aadhaar Download</h3>
+        <p>
+          Available Aadhaar download और print assistance.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">📄</div>
+        <h3>Document Update</h3>
+        <p>
+          Aadhaar document update assistance.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">🔎</div>
+        <h3>Aadhaar Card Find</h3>
+        <p>
+          Aadhaar card/details finding assistance.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">🪪</div>
+        <h3>Aadhaar Card PVC Print</h3>
+        <p>
+          Aadhaar PVC card print service.
+        </p>
+      </div>
+
     </div>
-    <div class="notice-box"><b>Important:</b> Aadhaar services और applicable charges current UIDAI rules, document requirements और service availability के अनुसार होंगे.</div>
+
   </div>
+
 </section>
 
-<section id="emitra" class="band">
+<!-- EMITRA -->
+<section id="emitra" class="alt">
+
   <div class="container">
+
     <div class="section-title">
-      <div class="eyebrow">RAJASTHAN eMITRA</div>
+      <small>RAJASTHAN eMITRA</small>
       <h2>eMitra Citizen Services</h2>
-      <p>Rajasthan eMitra से संबंधित online applications, certificates और citizen assistance.</p>
+      <p>
+        Rajasthan eMitra से संबंधित citizen services.
+      </p>
     </div>
-    <div class="search-wrap"><input id="serviceSearch" type="search" placeholder="eMitra service search करें..."></div>
-    <div class="category-grid">
-      <article class="category service"><div class="category-head"><h3>Jan Aadhaar</h3><span>▣</span></div><div class="category-body"><ul><li>Jan Aadhaar Enrollment Assistance</li><li>Jan Aadhaar Update / Correction</li><li>e-KYC Assistance</li></ul></div></article>
-      <article class="category service"><div class="category-head"><h3>Certificates</h3><span>▤</span></div><div class="category-body"><ul><li>Birth Certificate Assistance</li><li>Death Certificate Assistance</li><li>Caste Certificate</li><li>Income Certificate</li><li>Residence / Domicile Assistance</li></ul></div></article>
-      <article class="category service"><div class="category-head"><h3>Government Applications</h3><span>▥</span></div><div class="category-body"><ul><li>Online Government Forms</li><li>Scholarship Applications</li><li>Government Scheme Applications</li><li>Application Status Assistance</li></ul></div></article>
-      <article class="category service"><div class="category-head"><h3>Utility Services</h3><span>◉</span></div><div class="category-body"><ul><li>Electricity Bill Payment</li><li>Water Bill Payment</li><li>Mobile Recharge</li><li>DTH Recharge</li></ul></div></article>
-      <article class="category service"><div class="category-head"><h3>Digital Documentation</h3><span>▧</span></div><div class="category-body"><ul><li>Online Form Filling</li><li>Document Upload</li><li>Print / Scan</li><li>Photocopy / Lamination</li></ul></div></article>
-      <article class="category service"><div class="category-head"><h3>Other eMitra Services</h3><span>＋</span></div><div class="category-body"><ul><li>Available Portal Services</li><li>Department Applications</li><li>Citizen Service Assistance</li></ul></div></article>
+
+    <div class="categories">
+
+      <div class="category">
+
+        <div class="category-head">
+          <h3>Jan Aadhaar</h3>
+          <span>▣</span>
+        </div>
+
+        <div class="category-body">
+          <ul>
+            <li>Jan Aadhaar Enrollment Assistance</li>
+            <li>Jan Aadhaar Update / Correction</li>
+            <li>e-KYC Assistance</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="category">
+
+        <div class="category-head">
+          <h3>Certificates</h3>
+          <span>▤</span>
+        </div>
+
+        <div class="category-body">
+          <ul>
+            <li>Birth Certificate Assistance</li>
+            <li>Death Certificate Assistance</li>
+            <li>Caste Certificate</li>
+            <li>Income Certificate</li>
+            <li>Residence Certificate</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="category">
+
+        <div class="category-head">
+          <h3>Government Applications</h3>
+          <span>▥</span>
+        </div>
+
+        <div class="category-body">
+          <ul>
+            <li>Online Government Forms</li>
+            <li>Scholarship Applications</li>
+            <li>Government Scheme Applications</li>
+            <li>Application Status Assistance</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="category">
+
+        <div class="category-head">
+          <h3>Utility Services</h3>
+          <span>◉</span>
+        </div>
+
+        <div class="category-body">
+          <ul>
+            <li>Electricity Bill Payment</li>
+            <li>Water Bill Payment</li>
+            <li>Mobile Recharge</li>
+            <li>DTH Recharge</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="category">
+
+        <div class="category-head">
+          <h3>Digital Documentation</h3>
+          <span>▧</span>
+        </div>
+
+        <div class="category-body">
+          <ul>
+            <li>Online Form Filling</li>
+            <li>Document Upload</li>
+            <li>Print / Scan</li>
+            <li>Photocopy / Lamination</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="category">
+
+        <div class="category-head">
+          <h3>Other eMitra Services</h3>
+          <span>＋</span>
+        </div>
+
+        <div class="category-body">
+          <ul>
+            <li>Available Portal Services</li>
+            <li>Department Applications</li>
+            <li>Citizen Service Assistance</li>
+          </ul>
+        </div>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
+<!-- CSC -->
 <section id="csc">
+
   <div class="container">
+
     <div class="section-title">
-      <div class="eyebrow">DIGITAL SEVA</div>
-      <h2>CSC / Digital Seva Services</h2>
-      <p>CSC और Digital Seva से संबंधित available citizen services.</p>
+      <small>CSC / DIGITAL SEVA</small>
+      <h2>CSC Services</h2>
+      <p>
+        CSC एवं Digital Seva से संबंधित उपलब्ध services.
+      </p>
     </div>
-    <div class="category-grid">
-      <article class="category"><div class="category-head"><h3>Government &amp; Citizen</h3><span>🏛</span></div><div class="category-body"><ul><li>PAN Card Application Assistance</li><li>Voter ID Services</li><li>Passport Application Assistance</li><li>Government Scheme Applications</li><li>Scholarship Services</li><li>Pension-related Assistance</li></ul></div></article>
-      <article class="category"><div class="category-head"><h3>Health &amp; Welfare</h3><span>✚</span></div><div class="category-body"><ul><li>Ayushman / Health Scheme Assistance</li><li>PM Kisan Related Assistance</li><li>Social Welfare Scheme Forms</li><li>Worker / Labour-related Services</li></ul></div></article>
-      <article class="category"><div class="category-head"><h3>Financial Services*</h3><span>₹</span></div><div class="category-body"><ul><li>Banking BC Services*</li><li>AEPS*</li><li>Insurance Services*</li><li>NPS / Pension Services*</li><li>Money Transfer*</li></ul></div></article>
+
+    <div class="categories">
+
+      <div class="category">
+
+        <div class="category-head">
+          <h3>Government &amp; Citizen</h3>
+          <span>🏛</span>
+        </div>
+
+        <div class="category-body">
+          <ul>
+            <li>PAN Card Application Assistance</li>
+            <li>Voter ID Services</li>
+            <li>Passport Application Assistance</li>
+            <li>Government Scheme Applications</li>
+            <li>Scholarship Services</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="category">
+
+        <div class="category-head">
+          <h3>Health &amp; Welfare</h3>
+          <span>✚</span>
+        </div>
+
+        <div class="category-body">
+          <ul>
+            <li>Ayushman / Health Scheme Assistance</li>
+            <li>PM Kisan Related Assistance</li>
+            <li>Social Welfare Scheme Forms</li>
+            <li>Labour-related Services</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="category">
+
+        <div class="category-head">
+          <h3>Financial Services</h3>
+          <span>₹</span>
+        </div>
+
+        <div class="category-body">
+          <ul>
+            <li>Banking BC Services*</li>
+            <li>AEPS*</li>
+            <li>Insurance Services*</li>
+            <li>NPS / Pension Services*</li>
+            <li>Money Transfer*</li>
+          </ul>
+        </div>
+
+      </div>
+
     </div>
-    <div class="notice-box"><b>*Authorization notice:</b> Banking, AEPS, insurance, NPS, money transfer और अन्य regulated/partner services केवल applicable authorization, eligibility और active service availability के अनुसार उपलब्ध होंगी.</div>
+
   </div>
+
 </section>
 
-<section id="documents" class="band">
+<!-- DOCUMENTS -->
+<section id="documents" class="alt">
+
   <div class="container">
+
     <div class="section-title">
-      <div class="eyebrow">CITIZEN INFORMATION</div>
+      <small>CITIZEN INFORMATION</small>
       <h2>Documents Required</h2>
-      <p>Service के अनुसार documents अलग हो सकते हैं. Visit करने से पहले enquiry करें.</p>
+      <p>
+        Service के अनुसार documents अलग हो सकते हैं.
+      </p>
     </div>
+
     <div class="info-grid">
-      <div class="info-panel">
+
+      <div class="panel">
+
         <h3>साथ क्या लेकर आएँ?</h3>
-        <ul class="check-list">
+
+        <ul>
           <li>Valid identity proof, जहाँ applicable हो</li>
           <li>Address proof, जहाँ applicable हो</li>
           <li>Date of birth proof, जहाँ required हो</li>
           <li>Required cases में original documents</li>
           <li>Service-specific documents की पहले पुष्टि करें</li>
         </ul>
+
       </div>
-      <div class="info-panel">
-        <h3>Service Information</h3>
-        <ul class="check-list">
+
+      <div class="panel">
+
+        <h3>Important Information</h3>
+
+        <ul>
           <li>Government/UIDAI prescribed charges लागू हो सकते हैं</li>
           <li>Charges service के अनुसार अलग हो सकते हैं</li>
           <li>Final processing संबंधित portal/rules पर निर्भर है</li>
           <li>Availability के लिए WhatsApp/Call से confirm करें</li>
-          <li>किसी भी sensitive Aadhaar information को public chat में share न करें</li>
+          <li>OTP/PIN किसी के साथ share न करें</li>
         </ul>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
+<!-- FAQ -->
 <section id="faq">
+
   <div class="container">
+
     <div class="section-title">
-      <div class="eyebrow">HELP &amp; SUPPORT</div>
+      <small>HELP &amp; SUPPORT</small>
       <h2>Frequently Asked Questions</h2>
     </div>
+
     <div class="faq">
-      <details><summary>क्या Aadhaar appointment WhatsApp से request कर सकते हैं?</summary><p>हाँ. Appointment form भरकर request सीधे centre के WhatsApp number 7742041717 पर भेज सकते हैं. Final slot/date centre availability और applicable UIDAI process के अनुसार confirm किया जाएगा.</p></details>
-      <details><summary>क्या eMitra और CSC services भी उपलब्ध हैं?</summary><p>Website पर listed eMitra/CSC services में से वही services उपलब्ध होंगी जो centre पर active और authorized हैं. Visit से पहले WhatsApp या call करके confirm करें.</p></details>
-      <details><summary>Aadhaar services के charges कितने हैं?</summary><p>Applicable charges current UIDAI rules और service type के अनुसार होंगे. Current charges के लिए centre पर confirm करें.</p></details>
-      <details><summary>क्या Aadhaar का OTP या पूरा Aadhaar number WhatsApp पर भेजना चाहिए?</summary><p>नहीं. OTP, PIN या अन्य sensitive authentication information किसी व्यक्ति के साथ share न करें.</p></details>
+
+      <details>
+        <summary>
+          क्या Aadhaar appointment WhatsApp से request कर सकते हैं?
+        </summary>
+
+        <p>
+          हाँ। Appointment form भरकर request सीधे centre के WhatsApp
+          number 7742041717 पर भेज सकते हैं। Final date/time centre
+          availability और applicable process के अनुसार confirm किया जाएगा.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          क्या eMitra और CSC services भी उपलब्ध हैं?
+        </summary>
+
+        <p>
+          Website पर listed services में से वही services उपलब्ध होंगी
+          जो centre पर active और authorized हैं.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Aadhaar services के charges कितने हैं?
+        </summary>
+
+        <p>
+          Applicable charges current UIDAI rules और service type के
+          अनुसार होंगे. Current charges के लिए centre पर confirm करें.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          क्या Aadhaar OTP WhatsApp पर भेजना चाहिए?
+        </summary>
+
+        <p>
+          नहीं। OTP, PIN या authentication information किसी व्यक्ति के
+          साथ share न करें.
+        </p>
+      </details>
+
     </div>
+
   </div>
+
 </section>
 
-<section id="contact" class="contact-section">
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
   <div class="container contact-grid">
-    <div>
-      <div class="eyebrow" style="color:#a9d7f4">CONTACT CENTRE</div>
-      <h2>हम आपकी सहायता के लिए उपलब्ध हैं</h2>
-      <p>Aadhaar, eMitra, CSC और digital citizen services के लिए enquiry या appointment request भेजें.</p>
-      <div class="hero-actions">
-        <a class="btn btn-green" href="https://wa.me/917742041717" target="_blank" rel="noopener">💬 WhatsApp 7742041717</a>
-        <a class="btn btn-light" href="tel:+917742041717">☎ Call Now</a>
-        <a class="btn btn-orange" href="javascript:void(0)" onclick="openAppointmentModal()">📅 Appointment</a>
-      </div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-row"><div class="contact-icon">👤</div><div><b>Owner</b><br>Mayank Sisodiya</div></div>
-      <div class="contact-row"><div class="contact-icon">📍</div><div><b>Centre Address</b><br>Near Bank Of Baroda, Parsoli, Tehsil Begun, Dist. Chittorgarh, Rajasthan</div></div>
-      <div class="contact-row"><div class="contact-icon">📞</div><div><b>Mobile</b><br><a href="tel:+917742041717">7742041717</a></div></div>
-      <a class="btn btn-blue" style="width:100%;margin-top:14px" href="https://www.google.com/maps/search/?api=1&query=Bank+of+Baroda+Parsoli+Begun+Chittorgarh+Rajasthan" target="_blank" rel="noopener">📍 View Location on Maps</a>
-    </div>
-  </div>
-</section>
-</main>
 
-<footer class="footer">
-  <div class="container footer-top">
-    <div><h3>Aadhar Seva Kendra</h3><p>UIDAI Authorised Aadhaar Enrolment &amp; Update Centre</p><p style="margin-top:8px">Parsoli, Tehsil Begun, District Chittorgarh, Rajasthan.</p></div>
-    <div><h3>Quick Links</h3><ul><li><a href="#aadhaar">Aadhaar Services</a></li><li><a href="#emitra">eMitra Services</a></li><li><a href="#csc">CSC Services</a></li><li><a href="#contact">Contact</a></li></ul></div>
-    <div><h3>Contact</h3><ul><li>Mayank Sisodiya</li><li>7742041717</li><li>Near Bank Of Baroda, Parsoli</li></ul></div>
+    <div>
+
+      <h2>हम आपकी सहायता के लिए उपलब्ध हैं</h2>
+
+      <p>
+        Aadhaar, eMitra, CSC और digital citizen services के लिए
+        enquiry या appointment request भेजें.
+      </p>
+
+      <div class="buttons">
+
+        <a class="btn btn-green"
+           href="https://wa.me/917742041717"
+           target="_blank">
+          💬 WhatsApp 7742041717
+        </a>
+
+        <a class="btn btn-white"
+           href="tel:+917742041717">
+          ☎ Call Now
+        </a>
+
+        <button class="btn btn-orange"
+                onclick="openAppointment()">
+          📅 Appointment
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="contact-card">
+
+      <div class="contact-row">
+        <strong>👤 Owner</strong><br>
+        Mayank Sisodiya
+      </div>
+
+      <div class="contact-row">
+        <strong>📞 Mobile / WhatsApp</strong><br>
+        7742041717
+      </div>
+
+      <div class="contact-row">
+        <strong>📍 Centre Address</strong><br>
+        Near Bank Of Baroda, Parsoli,
+        Tehsil Begun, Dist. Chittorgarh,
+        Rajasthan
+      </div>
+
+      <a class="btn btn-blue"
+         style="width:100%;margin-top:12px"
+         href="https://www.google.com/maps/search/?api=1&query=Bank+of+Baroda+Parsoli+Begun+Chittorgarh+Rajasthan"
+         target="_blank">
+        📍 View Location
+      </a>
+
+    </div>
+
   </div>
-  <div class="footer-bottom">© <span id="year"></span> Aadhar Seva Kendra. All rights reserved. | Government/UIDAI logos and marks should be used only as permitted by the respective authorities.</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="container footer-grid">
+
+    <div>
+      <h3>Aadhar Seva Kendra</h3>
+
+      <p>
+        UIDAI Authorised Aadhaar Enrolment &amp; Update Centre
+      </p>
+
+      <p style="margin-top:8px">
+        Near Bank Of Baroda, Parsoli,
+        Tehsil Begun, District Chittorgarh,
+        Rajasthan.
+      </p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+
+      <ul>
+        <li><a href="#aadhaar">Aadhaar Services</a></li>
+        <li><a href="#emitra">eMitra</a></li>
+        <li><a href="#csc">CSC Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+
+      <ul>
+        <li>Mayank Sisodiya</li>
+        <li>7742041717</li>
+        <li>Parsoli, Chittorgarh</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © <span id="year"></span> Aadhar Seva Kendra. All Rights Reserved.
+  </div>
+
 </footer>
 
+<!-- FLOATING BUTTONS -->
 <div class="floating">
-  <a class="float float-wa" href="https://wa.me/917742041717" target="_blank" rel="noopener" aria-label="WhatsApp">W</a>
-  <a class="float float-call" href="tel:+917742041717" aria-label="Call">☎</a>
+
+  <a class="float whatsapp"
+     href="https://wa.me/917742041717"
+     target="_blank">
+    W
+  </a>
+
+  <a class="float phone"
+     href="tel:+917742041717">
+    ☎
+  </a>
+
 </div>
 
-<div class="modal" id="appointmentModal" aria-hidden="true">
+<!-- APPOINTMENT MODAL -->
+<div class="modal" id="appointmentModal">
+
   <div class="modal-box">
-    <button class="close" onclick="closeAppointmentModal()" aria-label="Close">×</button>
-    <div class="modal-top"><h2>Appointment Request</h2><p>Appointment request सीधे centre के WhatsApp 7742041717 पर भेजें.</p></div>
-    <div class="modal-note"><b>Important:</b> यह WhatsApp appointment request है. Final date/time slot centre availability और applicable UIDAI process के अनुसार confirm किया जाएगा.</div>
+
+    <button class="close"
+            onclick="closeAppointment()">
+      ×
+    </button>
+
+    <h2>Appointment Request</h2>
+
+    <p class="modal-sub">
+      Request सीधे Aadhar Seva Kendra के WhatsApp
+      7742041717 पर भेजें.
+    </p>
+
+    <div class="modal-note">
+      <strong>Important:</strong>
+      यह WhatsApp appointment request है.
+      Final date/time centre availability के अनुसार confirm किया जाएगा.
+    </div>
+
     <form id="appointmentForm">
+
       <div class="form-grid">
-        <div class="form-group"><label>Applicant Name *</label><input id="appName" required placeholder="पूरा नाम"></div>
-        <div class="form-group"><label>Mobile Number *</label><input id="appMobile" required type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 digit mobile"></div>
-        <div class="form-group full"><label>Aadhaar Service *</label>
-          <select id="appService" required>
-            <option value="">Service चुनें</option>
-            <option>0–5 New Enrollment</option><option>Mobile Number Update</option><option>Mail ID Update</option>
-            <option>Address Update</option><option>Aadhaar Download</option><option>Document Update</option>
-            <option>Aadhaar Card Find</option><option>Aadhaar Card PVC Print</option><option>Other Aadhaar Service</option>
-          </select>
+
+        <div class="form-group">
+
+          <label>Applicant Name *</label>
+
+          <input
+            id="appName"
+            type="text"
+            required
+            placeholder="पूरा नाम">
+
         </div>
-        <div class="form-group"><label>Preferred Date *</label><input id="appDate" required type="date"></div>
-        <div class="form-group"><label>Preferred Time</label><select id="appTime"><option value="">Any available time</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
-        <div class="form-group"><label>Applicant Type</label><select id="appType"><option>Adult</option><option>Child</option><option>Senior Citizen</option></select></div>
-        <div class="form-group full"><label>Additional Information</label><textarea id="appMessage" rows="3" placeholder="कोई अतिरिक्त जानकारी..."></textarea></div>
+
+        <div class="form-group">
+
+          <label>Mobile Number *</label>
+
+          <input
+            id="appMobile"
+            type="tel"
+            inputmode="numeric"
+            maxlength="10"
+            pattern="[0-9]{10}"
+            required
+            placeholder="10 digit mobile">
+
+        </div>
+
+        <div class="form-group full">
+
+          <label>Aadhaar Service *</label>
+
+          <select id="appService" required>
+
+            <option value="">
+              Service चुनें
+            </option>
+
+            <option>0–5 New Enrollment</option>
+            <option>Mobile Number Update</option>
+            <option>Mail ID Update</option>
+            <option>Address Update</option>
+            <option>Aadhaar Download</option>
+            <option>Document Update</option>
+            <option>Aadhaar Card Find</option>
+            <option>Aadhaar Card PVC Print</option>
+            <option>Other Aadhaar Service</option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Preferred Date *</label>
+
+          <input
+            id="appDate"
+            type="date"
+            required>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Preferred Time</label>
+
+          <select id="appTime">
+
+            <option>Any available time</option>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Applicant Type</label>
+
+          <select id="appType">
+
+            <option>Adult</option>
+            <option>Child</option>
+            <option>Senior Citizen</option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group full">
+
+          <label>Additional Information</label>
+
+          <textarea
+            id="appMessage"
+            rows="3"
+            placeholder="कोई अतिरिक्त जानकारी..."></textarea>
+
+        </div>
+
       </div>
-      <button class="btn btn-green" style="width:100%;margin-top:17px" type="submit">💬 Send Request on WhatsApp</button>
+
+      <button
+        class="btn btn-green"
+        style="width:100%;margin-top:18px"
+        type="submit">
+
+        💬 Send Appointment Request on WhatsApp
+
+      </button>
+
     </form>
+
   </div>
+
 </div>
 
 <script>
-const menuBtn=document.getElementById('menuBtn');
-const navList=document.getElementById('navList');
-menuBtn.addEventListener('click',()=>navList.classList.toggle('open'));
-document.querySelectorAll('#navList a').forEach(a=>a.addEventListener('click',()=>navList.classList.remove('open')));
 
-const search=document.getElementById('serviceSearch');
-const cards=[...document.querySelectorAll('#emitra .service')];
-if(search){
-  search.addEventListener('input',()=>{
-    const q=search.value.toLowerCase().trim();
-    cards.forEach(card=>card.classList.toggle('hidden',q && !card.innerText.toLowerCase().includes(q)));
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+  document
+    .getElementById("navMenu")
+    .classList
+    .toggle("open");
+
+}
+
+
+/* APPOINTMENT */
+
+function openAppointment(){
+
+  const modal =
+    document.getElementById("appointmentModal");
+
+  modal.classList.add("show");
+
+  document.body.style.overflow="hidden";
+
+  const dateInput =
+    document.getElementById("appDate");
+
+  const today =
+    new Date();
+
+  const yyyy =
+    today.getFullYear();
+
+  const mm =
+    String(today.getMonth()+1).padStart(2,"0");
+
+  const dd =
+    String(today.getDate()).padStart(2,"0");
+
+  dateInput.min =
+    yyyy+"-"+mm+"-"+dd;
+
+}
+
+
+function closeAppointment(){
+
+  document
+    .getElementById("appointmentModal")
+    .classList
+    .remove("show");
+
+  document.body.style.overflow="";
+
+}
+
+
+/* CLOSE MODAL ON OUTSIDE CLICK */
+
+document
+  .getElementById("appointmentModal")
+  .addEventListener("click",function(e){
+
+    if(e.target === this){
+      closeAppointment();
+    }
+
   });
-}
 
-function openAppointmentModal(){
-  const modal=document.getElementById('appointmentModal');
-  modal.classList.add('show');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
-  const d=document.getElementById('appDate'), now=new Date();
-  d.min=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
-}
-function closeAppointmentModal(){
-  const modal=document.getElementById('appointmentModal');
-  modal.classList.remove('show');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';
-}
-document.getElementById('appointmentModal').addEventListener('click',e=>{if(e.target.id==='appointmentModal')closeAppointmentModal()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAppointmentModal()});
 
-document.getElementById('appointmentForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const name=document.getElementById('appName').value.trim();
-  const mobile=document.getElementById('appMobile').value.trim();
-  const service=document.getElementById('appService').value;
-  const date=document.getElementById('appDate').value;
-  const time=document.getElementById('appTime').value||'Any available time';
-  const type=document.getElementById('appType').value;
-  const msg=document.getElementById('appMessage').value.trim()||'None';
-  const formatted=date?new Date(date+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'2-digit',year:'numeric'}):'';
-  const text=`*Aadhar Seva Kendra - Appointment Request*\n\n*Applicant Name:* ${name}\n*Mobile:* ${mobile}\n*Service:* ${service}\n*Preferred Date:* ${formatted}\n*Preferred Time:* ${time}\n*Applicant Type:* ${type}\n*Additional Information:* ${msg}\n\nPlease confirm my appointment request and available time slot.`;
-  window.open('https://wa.me/917742041717?text='+encodeURIComponent(text),'_blank');
-  closeAppointmentModal();
+/* APPOINTMENT → WHATSAPP */
+
+document
+  .getElementById("appointmentForm")
+  .addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const name =
+      document.getElementById("appName").value.trim();
+
+    const mobile =
+      document.getElementById("appMobile").value.trim();
+
+    const service =
+      document.getElementById("appService").value;
+
+    const date =
+      document.getElementById("appDate").value;
+
+    const time =
+      document.getElementById("appTime").value;
+
+    const type =
+      document.getElementById("appType").value;
+
+    const message =
+      document.getElementById("appMessage").value.trim()
+      || "None";
+
+    let formattedDate = date;
+
+    if(date){
+
+      const d =
+        new Date(date+"T00:00:00");
+
+      formattedDate =
+        d.toLocaleDateString(
+          "en-IN",
+          {
+            day:"2-digit",
+            month:"2-digit",
+            year:"numeric"
+          }
+        );
+
+    }
+
+    const whatsappMessage =
+`*Aadhar Seva Kendra - Appointment Request*
+
+*Applicant Name:* ${name}
+*Mobile:* ${mobile}
+*Service:* ${service}
+*Preferred Date:* ${formattedDate}
+*Preferred Time:* ${time}
+*Applicant Type:* ${type}
+*Additional Information:* ${message}
+
+Please confirm my appointment request and available time slot.`;
+
+    const url =
+      "https://wa.me/917742041717?text="
+      +encodeURIComponent(whatsappMessage);
+
+    window.open(url,"_blank");
+
+    closeAppointment();
+
+  });
+
+
+/* YEAR */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+/* ESCAPE KEY */
+
+document.addEventListener("keydown",function(e){
+
+  if(e.key==="Escape"){
+    closeAppointment();
+  }
+
 });
-document.getElementById('year').textContent=new Date().getFullYear();
+
 </script>
+
 </body>
-</html>YPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Aadhar Seva Kendra, Parsoli, Begun, Chittorgarh - UIDAI Authorised Aadhaar Enrolment & Update Centre, eMitra and CSC citizen services.">
-<title>Aadhar Seva Kendra | Citizen Services Portal</title>
-<style>
-:root{
-  --primary:#0757a0;--primary-dark:#063b70;--accent:#f28c28;--green:#159447;
-  --navy:#102b43;--text:#263746;--muted:#6b7b8c;--bg:#f5f8fb;--white:#fff;
-  --border:#e5ebf1;--shadow:0 14px 45px rgba(16,43,67,.10);--radius:18px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}
-a{text-decoration:none;color:inherit}
-.topbar{background:var(--navy);color:#fff;font-size:13px}
-.topbar .wrap{max-width:1240px;margin:auto;padding:8px 24px;display:flex;justify-content:space-between;gap:15px}
-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav{max-width:1240px;margin:auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--navy)}
-.brand-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:3px solid var(--accent);position:relative;color:var(--primary);font-size:20px;background:#fff}
-.brand-mark:after{content:"";position:absolute;width:8px;height:8px;background:var(--accent);border-radius:50%;top:-5px;right:5px}
-.brand small{display:block;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.3px}
-nav ul{display:flex;list-style:none;gap:24px;align-items:center}
-nav a{font-size:14px;font-weight:800;color:var(--navy);transition:.2s}
-nav a:hover{color:var(--primary)}
-.nav-cta{background:var(--primary);color:#fff!important;padding:10px 15px;border-radius:9px}
-.menu-btn{display:none;border:0;background:var(--primary);color:#fff;border-radius:9px;padding:9px 12px;font-size:20px}
-.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#eef7ff 0%,#fff 57%,#fff6eb 100%);padding:78px 24px 74px}
-.hero:before{content:"";position:absolute;width:420px;height:420px;border:70px solid rgba(7,87,160,.045);border-radius:50%;right:-160px;top:-180px}
-.hero-inner{position:relative;max-width:1240px;margin:auto;display:grid;grid-template-columns:1.18fr .82fr;gap:60px;align-items:center}
-.badge{display:inline-flex;align-items:center;gap:7px;background:#e7f3ff;color:var(--primary);padding:8px 14px;border-radius:30px;font-weight:900;font-size:12px;letter-spacing:.2px}
-.hero h1{font-size:clamp(42px,5vw,70px);line-height:1.02;color:var(--navy);margin:18px 0}
-.hero h1 span{color:var(--primary)}
-.hero p{font-size:18px;color:var(--muted);max-width:700px}
-.actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;border-radius:10px;font-weight:900;border:2px solid transparent;cursor:pointer;transition:.2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--primary);color:#fff}
-.btn-green{background:var(--green);color:#fff}
-.btn-outline{border-color:var(--primary);color:var(--primary);background:#fff}
-.hero-card{background:rgba(255,255,255,.92);border:1px solid #e3ebf2;border-radius:24px;padding:28px;box-shadow:var(--shadow)}
-.hero-card h3{font-size:21px;color:var(--navy);margin-bottom:8px}
-.info-row{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid #edf1f4}
-.info-row:last-child{border-bottom:0}
-.icon{width:38px;height:38px;border-radius:10px;background:#edf6ff;color:var(--primary);display:grid;place-items:center;flex:none}
-.trust{background:var(--primary);color:#fff;padding:19px 24px}
-.trust-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.trust-item{text-align:center;font-weight:800;padding:8px}
-section{padding:76px 24px}
-.container{max-width:1240px;margin:auto}
-.section-head{text-align:center;max-width:760px;margin:0 auto 38px}
-.section-head h2{font-size:36px;line-height:1.15;color:var(--navy);margin-bottom:9px}
-.section-head p{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:23px;box-shadow:0 5px 22px rgba(16,43,67,.055);transition:.25s;position:relative;overflow:hidden}
-.card:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));opacity:0;transition:.2s}
-.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.card:hover:before{opacity:1}
-.card h3{color:var(--navy);font-size:18px;margin:13px 0 7px}
-.card p{color:var(--muted);font-size:14px}
-.card ul{list-style:none;margin-top:12px}
-.card li{padding:6px 0;border-bottom:1px dashed #e6ebef;font-size:14px}
-.card li:last-child{border:0}
-.card li::before{content:"✓";color:var(--green);font-weight:900;margin-right:8px}
-.alt{background:var(--bg)}
-.service-search{max-width:650px;margin:0 auto 30px}
-.service-search input{width:100%;padding:14px 17px;border:1px solid #ccd8e2;border-radius:11px;font-size:16px;outline:none;background:#fff;box-shadow:0 5px 15px rgba(16,43,67,.04)}
-.service-search input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(7,87,160,.08)}
-.notice{background:#fff7e8;border:1px solid #f5dfb6;border-left:5px solid var(--accent);padding:15px 18px;border-radius:11px;margin-top:24px;color:#60471f}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
-.about-box{background:var(--bg);padding:30px;border-radius:20px}
-.checklist{list-style:none;margin-top:15px}
-.checklist li{margin:10px 0}.checklist li::before{content:"✓";color:var(--green);font-weight:900;margin-right:10px}
-.docs{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-.doc{padding:22px;background:#fff;border:1px solid var(--border);border-radius:14px;text-align:center}
-.doc strong{display:block;margin-top:8px;color:var(--navy)}
-.doc span{font-size:13px;color:var(--muted)}
-.faq{max-width:880px;margin:auto}
-details{background:#fff;border:1px solid var(--border);border-radius:11px;margin:10px 0;padding:16px 19px}
-summary{cursor:pointer;font-weight:850;color:var(--navy)}
-details p{color:var(--muted);margin-top:10px}
-.contact{background:var(--navy);color:#fff}
-.contact h2{font-size:38px;margin-bottom:10px}
-.contact p{color:#d8e4ec}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
-.contact-card{background:#fff;color:var(--text);padding:27px;border-radius:20px;box-shadow:var(--shadow)}
-footer{background:#091e2e;color:#d6e1e9;padding:28px 24px;text-align:center;font-size:13px}
-.floating{position:fixed;right:18px;bottom:18px;z-index:999;display:flex;flex-direction:column;gap:9px}
-.float-btn{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:0 7px 20px rgba(0,0,0,.22)}
-.wa{background:#18a957}.call{background:var(--primary)}
-.hidden{display:none!important}
-.modal{display:none;position:fixed;inset:0;background:rgba(5,24,40,.68);z-index:2000;padding:20px;align-items:center;justify-content:center}
-.modal.show{display:flex}
-.modal-box{width:min(620px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:20px;padding:29px;box-shadow:0 20px 60px rgba(0,0,0,.25);position:relative}
-.modal-box h2{color:var(--navy);margin-bottom:6px}
-.modal-box .sub{color:var(--muted);font-size:14px;margin-bottom:18px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.form-group{display:flex;flex-direction:column;gap:6px}
-.form-group.full{grid-column:1/-1}
-.form-group label{font-size:13px;font-weight:800;color:var(--navy)}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px;border:1px solid #ccd8e2;border-radius:9px;font:inherit;outline:none}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary)}
-.close-modal{position:absolute;right:16px;top:13px;border:0;background:#edf3f7;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer}
-.modal-note{background:#eef7ff;border-left:4px solid var(--primary);padding:12px;margin:16px 0;font-size:13px;color:#345}
-@media(max-width:1050px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .hero-inner{gap:35px}
-  nav ul{gap:14px}
-}
-@media(max-width:900px){
-  .hero-inner,.about,.contact-grid{grid-template-columns:1fr}
-  .trust-grid{grid-template-columns:repeat(2,1fr)}
-  nav ul{display:none;position:absolute;left:0;right:0;top:72px;background:#fff;padding:18px 5%;flex-direction:column;align-items:flex-start;box-shadow:0 10px 20px rgba(0,0,0,.1)}
-  nav ul.open{display:flex}.menu-btn{display:block}
-}
-@media(max-width:600px){
-  .topbar .wrap{flex-direction:column;text-align:center;gap:2px}
-  .nav{padding:11px 18px}.brand small{font-size:9px}
-  section{padding:55px 18px}.hero{padding:58px 18px}
-  .grid,.docs,.trust-grid{grid-template-columns:1fr}
-  .hero h1{font-size:43px}.hero p{font-size:16px}
-  .actions .btn{width:100%}
-  .section-head h2{font-size:30px}
-  .form-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}
-}
-</style>
+</html>
+```
