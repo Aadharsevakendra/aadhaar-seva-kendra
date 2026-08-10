@@ -559,6 +559,25 @@ input{
 }
 
 
+
+.popular-book-btn{
+    width:100%;
+    margin-top:16px;
+    border:0;
+    border-radius:12px;
+    padding:11px 14px;
+    background:linear-gradient(135deg,#0b63c5,#087ad5);
+    color:#fff;
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 8px 18px rgba(8,122,213,.18);
+    transition:transform .2s ease,box-shadow .2s ease;
+}
+.popular-book-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(8,122,213,.26)}
+.popular-card{display:flex;flex-direction:column}
+.popular-card p{flex:1}
+
 /* =========================================================
    WHY US
 ========================================================= */
@@ -1354,7 +1373,7 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
 .popular-card:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(7,27,58,.13);border-color:rgba(11,94,215,.25)}
 .popular-icon{position:relative;width:64px;height:64px;display:grid;place-items:center;border-radius:20px;background:linear-gradient(145deg,#edf6ff,#fff);font-size:31px;box-shadow:inset 0 0 0 1px rgba(11,94,215,.08),0 10px 22px rgba(7,27,58,.08);margin-bottom:18px}
 .popular-card p{color:#687788;line-height:1.65}
-.popular-card:after{content:"Book Service  →";display:inline-flex;margin-top:8px;padding:9px 13px;border-radius:10px;background:rgba(11,94,215,.07);color:#0b5ed7;font-size:12px;font-weight:800;transition:.25s ease}
+.popular-card:after{display:none}
 .popular-card:hover:after{background:#0b5ed7;color:#fff;transform:translateX(3px)}
 
 .why-section{background:linear-gradient(180deg,#f8fbff 0%,#fff 100%);position:relative;overflow:hidden}
@@ -2032,6 +2051,10 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
      POPULAR SERVICES
 ======================================================= -->
 
+<section class="section" id="popular"<!-- =======================================================
+     POPULAR SERVICES
+======================================================= -->
+
 <section class="section" id="popular">
 
     <div class="container">
@@ -2067,6 +2090,8 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
                     Aadhaar में उपलब्ध जानकारी के अपडेट से संबंधित सहायता।
                 </p>
 
+                <button type="button" class="popular-book-btn" onclick="openServiceBooking('Aadhaar')">📅 Book Service</button>
+
             </div>
 
 
@@ -2082,6 +2107,8 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
                 <p>
                     PAN से संबंधित ऑनलाइन सेवा एवं आवेदन सहायता।
                 </p>
+
+                <button type="button" class="popular-book-btn" onclick="openServiceBooking('PAN Card')">📅 Book Service</button>
 
             </div>
 
@@ -2099,6 +2126,8 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
                     उपलब्ध बिल भुगतान सेवाओं के लिए संपर्क करें।
                 </p>
 
+                <button type="button" class="popular-book-btn" onclick="openServiceBooking('Bill Payment')">📅 Book Service</button>
+
             </div>
 
 
@@ -2114,6 +2143,8 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
                 <p>
                     उपलब्ध CSC/e-Mitra banking सेवाओं की जानकारी।
                 </p>
+
+                <button type="button" class="popular-book-btn" onclick="openServiceBooking('Banking Services')">📅 Book Service</button>
 
             </div>
 
@@ -2131,6 +2162,8 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
                     उपलब्ध बीमा सेवाओं से संबंधित सहायता।
                 </p>
 
+                <button type="button" class="popular-book-btn" onclick="openServiceBooking('Insurance')">📅 Book Service</button>
+
             </div>
 
 
@@ -2146,6 +2179,8 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
                 <p>
                     पेंशन से संबंधित उपलब्ध सेवाओं के लिए संपर्क करें।
                 </p>
+
+                <button type="button" class="popular-book-btn" onclick="openServiceBooking('Pension Services')">📅 Book Service</button>
 
             </div>
 
@@ -2163,6 +2198,8 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
                     विभिन्न सरकारी योजनाओं की ऑनलाइन सहायता।
                 </p>
 
+                <button type="button" class="popular-book-btn" onclick="openServiceBooking('Government Schemes')">📅 Book Service</button>
+
             </div>
 
 
@@ -2178,6 +2215,8 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
                 <p>
                     विभिन्न ऑनलाइन फॉर्म एवं आवेदन में सहायता।
                 </p>
+
+                <button type="button" class="popular-book-btn" onclick="openServiceBooking('Online Forms')">📅 Book Service</button>
 
             </div>
 
@@ -2646,13 +2685,7 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
 
 
 
-<!-- =======================================================
-     JAVASCRIPT
-======================================================= -->
-
-<script>
-
-/* =========================================================
+===========================
    YEAR
 ========================================================= */
 
@@ -3105,4 +3138,50 @@ document.querySelectorAll('a[href^="#"]')
 @media(max-width:650px){
     .quick-card,.popular-card,.why-card{border-radius:20px !important;}
 }
+</style>
+
+<style>
+
+/* HERO CENTRE CARD — CONTRAST FIX */
+.hero-card{
+    color:#17324d !important;
+    background:rgba(255,255,255,.98) !important;
+    border:1px solid rgba(255,255,255,.75) !important;
+    box-shadow:0 24px 60px rgba(5,28,70,.24) !important;
+    backdrop-filter:blur(14px);
+}
+.hero-card h3{
+    color:#0753a0 !important;
+    font-size:24px;
+    font-weight:800;
+}
+.hero-card p{
+    color:#5d6f82 !important;
+}
+.hero-logo img{
+    background:#fff;
+    border:5px solid #f3f7fc !important;
+    box-shadow:0 10px 28px rgba(7,27,58,.14) !important;
+}
+.hero-info{
+    border-top:1px solid #e4ebf4 !important;
+}
+.hero-info div{
+    color:#17324d !important;
+    background:#f5f8fc !important;
+    border-bottom:1px solid #e1e8f1 !important;
+    border-radius:9px;
+    margin:6px 0;
+    padding:10px 13px !important;
+    font-weight:600;
+}
+.hero-info div:first-child{
+    background:#edf5ff !important;
+    color:#0753a0 !important;
+}
+.hero-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 30px 72px rgba(5,28,70,.28) !important;
+}
+
 </style>
