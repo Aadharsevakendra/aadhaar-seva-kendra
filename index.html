@@ -1235,6 +1235,8 @@ footer{background:#04152f}
 
             <a href="#popular">लोकप्रिय सेवाएं</a>
 
+            <a href="#appointment">Appointment</a>
+
             <a href="#about">हमारे बारे में</a>
 
             <a href="#contact" class="nav-btn">
@@ -1291,6 +1293,13 @@ footer{background:#04152f}
                     class="btn btn-outline"
                 >
                     💬 WhatsApp
+                </a>
+
+                <a
+                    href="#appointment"
+                    class="btn btn-outline"
+                >
+                    📅 Appointment Book करें
                 </a>
 
                 <a
@@ -1375,6 +1384,156 @@ footer{background:#04152f}
 
 
 
+
+
+<!-- =======================================================
+     AADHAAR APPOINTMENT
+======================================================= -->
+<section class="section appointment-section" id="appointment">
+    <div class="container">
+
+        <div class="section-header">
+            <div class="small-title">Aadhaar Appointment</div>
+            <h2>आधार सेवा के लिए Appointment Book करें</h2>
+            <p>अपनी सेवा, तारीख और पसंदीदा समय चुनकर appointment request भेजें।</p>
+        </div>
+
+        <div class="appointment-wrap">
+
+            <div class="appointment-intro">
+                <div class="appointment-kicker">🪪 Aadhaar Service Desk</div>
+
+                <h2>अपना समय पहले से तय करें</h2>
+
+                <p>
+                    Aadhaar Enrolment, Update और Biometric जैसी सेवाओं के लिए
+                    पहले से appointment request भेजें और अनावश्यक इंतजार से बचें।
+                </p>
+
+                <div class="appointment-features">
+                    <div class="appointment-feature">
+                        <div class="appointment-feature-icon">📅</div>
+                        <div>
+                            <strong>अपनी तारीख चुनें</strong>
+                            <span>अपनी सुविधा के अनुसार तारीख select करें।</span>
+                        </div>
+                    </div>
+
+                    <div class="appointment-feature">
+                        <div class="appointment-feature-icon">⏰</div>
+                        <div>
+                            <strong>Preferred Time</strong>
+                            <span>उपलब्ध समय में से अपनी पसंद चुनें।</span>
+                        </div>
+                    </div>
+
+                    <div class="appointment-feature">
+                        <div class="appointment-feature-icon">💬</div>
+                        <div>
+                            <strong>WhatsApp Confirmation</strong>
+                            <span>Request सीधे centre के WhatsApp पर भेजें।</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="appointment-form-card">
+
+                <div class="appointment-form-head">
+                    <div>
+                        <h3>Appointment Request</h3>
+                        <p>नीचे अपनी जानकारी भरें</p>
+                    </div>
+                    <div class="appointment-status">Request Open</div>
+                </div>
+
+                <form class="appointment-form" id="appointmentForm">
+
+                    <div class="appointment-field">
+                        <label for="appName">नाम *</label>
+                        <input id="appName" name="name" type="text"
+                               placeholder="अपना पूरा नाम" required>
+                    </div>
+
+                    <div class="appointment-field">
+                        <label for="appMobile">मोबाइल नंबर *</label>
+                        <input id="appMobile" name="mobile" type="tel"
+                               inputmode="numeric" maxlength="10"
+                               placeholder="10 अंकों का मोबाइल नंबर" required>
+                    </div>
+
+                    <div class="appointment-field">
+                        <label for="appService">Aadhaar Service *</label>
+                        <select id="appService" name="service" required>
+                            <option value="">सेवा चुनें</option>
+                            <option>Aadhaar New Enrolment</option>
+                            <option>Aadhaar Name Update</option>
+                            <option>Aadhaar Address Update</option>
+                            <option>Mobile Number Update</option>
+                            <option>Date of Birth Update</option>
+                            <option>Gender Update</option>
+                            <option>Biometric Update</option>
+                            <option>Aadhaar Document Update</option>
+                            <option>Aadhaar Print</option>
+                            <option>Other Aadhaar Service</option>
+                        </select>
+                    </div>
+
+                    <div class="appointment-field">
+                        <label for="appDate">Appointment Date *</label>
+                        <input id="appDate" name="date" type="date" required>
+                    </div>
+
+                    <div class="appointment-field">
+                        <label for="appTime">Preferred Time *</label>
+                        <select id="appTime" name="time" required>
+                            <option value="">समय चुनें</option>
+                            <option>09:00 AM - 10:00 AM</option>
+                            <option>10:00 AM - 11:00 AM</option>
+                            <option>11:00 AM - 12:00 PM</option>
+                            <option>12:00 PM - 01:00 PM</option>
+                            <option>02:00 PM - 03:00 PM</option>
+                            <option>03:00 PM - 04:00 PM</option>
+                            <option>04:00 PM - 05:00 PM</option>
+                            <option>05:00 PM - 06:00 PM</option>
+                        </select>
+                    </div>
+
+                    <div class="appointment-field">
+                        <label for="appAadhaar">Aadhaar के अंतिम 4 अंक (वैकल्पिक)</label>
+                        <input id="appAadhaar" name="aadhaarLast4" type="text"
+                               inputmode="numeric" maxlength="4"
+                               placeholder="केवल अंतिम 4 अंक">
+                    </div>
+
+                    <div class="appointment-field full">
+                        <label for="appNote">नोट / अतिरिक्त जानकारी</label>
+                        <textarea id="appNote" name="note"
+                                  placeholder="यदि कोई विशेष जानकारी हो तो लिखें..."></textarea>
+                    </div>
+
+                    <div class="appointment-note">
+                        🔒 कृपया यहाँ अपना पूरा Aadhaar नंबर, OTP, PIN या अन्य संवेदनशील जानकारी दर्ज न करें।
+                        Appointment request WhatsApp के माध्यम से centre को भेजी जाएगी।
+                    </div>
+
+                    <div class="appointment-submit">
+                        <button type="submit" class="btn">
+                            📅 Appointment Request भेजें
+                        </button>
+                    </div>
+
+                </form>
+
+                <div class="appointment-direct">
+                    तुरंत सहायता चाहिए? <a href="tel:+917742041717">7742041717 पर कॉल करें</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- =======================================================
      QUICK ACTIONS
 ======================================================= -->
@@ -1400,7 +1559,7 @@ footer{background:#04152f}
 
         <div class="quick-grid">
 
-            <a href="#aadhaar" class="quick-card service-item">
+            <a href="#appointment" class="quick-card service-item">
 
                 <div class="quick-icon">🪪</div>
 
@@ -1510,6 +1669,10 @@ footer{background:#04152f}
 
 
                 <div class="service-list">
+
+                    <a href="#appointment" style="color:#0b5ed7;font-weight:800;">
+                        📅 Book Aadhaar Appointment
+                    </a>
 
                     <a href="#contact">
                         Aadhaar New Enrolment
@@ -2311,6 +2474,80 @@ document.addEventListener("keydown", function(event){
 
 });
 
+
+
+
+
+/* =========================================================
+   AADHAAR APPOINTMENT
+========================================================= */
+(function(){
+    const form = document.getElementById("appointmentForm");
+    const dateInput = document.getElementById("appDate");
+
+    if(dateInput){
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth()+1).padStart(2,"0");
+        const dd = String(today.getDate()).padStart(2,"0");
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+    }
+
+    if(form){
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            const name = document.getElementById("appName").value.trim();
+            const mobile = document.getElementById("appMobile").value.trim();
+            const service = document.getElementById("appService").value;
+            const date = document.getElementById("appDate").value;
+            const time = document.getElementById("appTime").value;
+            const aadhaarLast4 = document.getElementById("appAadhaar").value.trim();
+            const note = document.getElementById("appNote").value.trim();
+
+            if(!/^[0-9]{10}$/.test(mobile)){
+                alert("कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।");
+                return;
+            }
+
+            if(aadhaarLast4 && !/^[0-9]{4}$/.test(aadhaarLast4)){
+                alert("Aadhaar के अंतिम 4 अंक केवल 4 अंकों में दर्ज करें।");
+                return;
+            }
+
+            const formattedDate = new Date(date + "T00:00:00")
+                .toLocaleDateString("en-IN", {
+                    day:"2-digit", month:"2-digit", year:"numeric"
+                });
+
+            const message =
+`*Aadhaar Appointment Request*
+` +
+`नाम: ${name}
+` +
+`मोबाइल: ${mobile}
+` +
+`सेवा: ${service}
+` +
+`तारीख: ${formattedDate}
+` +
+`समय: ${time}
+` +
+(aadhaarLast4 ? `Aadhaar Last 4 Digits: ${aadhaarLast4}
+` : "") +
+(note ? `नोट: ${note}
+` : "") +
+`
+कृपया मेरी appointment request confirm करें।`;
+
+            const whatsappUrl =
+                "https://wa.me/917742041717?text=" +
+                encodeURIComponent(message);
+
+            window.open(whatsappUrl, "_blank", "noopener");
+        });
+    }
+})();
 
 
 /* =========================================================
