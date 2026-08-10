@@ -1531,6 +1531,17 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
 }
 
 </style>
+
+<style id="real-location-style">
+.location-link{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:.2s ease;}
+.location-link:hover{color:#2563eb;text-decoration:underline;}
+.location-link.location-light:hover{color:#fff;text-decoration:none;transform:translateY(-1px);}
+.location-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+.location-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 15px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14px;background:#2563eb;color:#fff;box-shadow:0 8px 20px rgba(37,99,235,.22);transition:.2s ease;}
+.location-btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(37,99,235,.30);}
+.location-btn.alt{background:#0f172a;}
+@media(max-width:600px){.location-actions{width:100%;}.location-btn{flex:1;min-width:150px;}}
+</style>
 </head>
 
 
@@ -1549,7 +1560,7 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
         </div>
 
         <div class="topbar-right">
-            <span>📍 Parsoli, Rajasthan</span>
+            <a class="location-link location-light" href="https://maps.app.goo.gl/pac8kCjvBVDBLhVFA" target="_blank" rel="noopener">📍 Aadhaar Center, Parsoli, Rajasthan</a>
             <span>📞 7742041717</span>
         </div>
 
@@ -1691,7 +1702,7 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
 
                 <div>💻 CSC Services</div>
 
-                <div>📍 Parsoli, Rajasthan</div>
+                <div><a class="location-link" href="https://maps.app.goo.gl/pac8kCjvBVDBLhVFA" target="_blank" rel="noopener">📍 Aadhaar Center, Parsoli, Rajasthan</a></div>
 
                 <div>📞 7742041717</div>
 
@@ -2499,7 +2510,7 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
 
             <div class="hero-info">
 
-                <div>📍 <strong>स्थान:</strong> Parsoli, Rajasthan</div>
+                <div>📍 <strong>स्थान:</strong> <a class="location-link" href="https://maps.app.goo.gl/pac8kCjvBVDBLhVFA" target="_blank" rel="noopener">Aadhaar Center, Parsoli, Rajasthan</a></div>
 
                 <div>📞 <strong>मोबाइल:</strong> 7742041717</div>
 
@@ -2509,6 +2520,11 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
 
                 <div>💻 <strong>Services:</strong> CSC</div>
 
+            </div>
+
+            <div class="location-actions">
+                <a class="location-btn" href="https://www.google.com/maps/dir/?api=1&destination=25.1067421,74.8820786" target="_blank" rel="noopener">📍 Get Directions</a>
+                <a class="location-btn alt" href="https://maps.app.goo.gl/pac8kCjvBVDBLhVFA" target="_blank" rel="noopener">🗺️ Open Location</a>
             </div>
 
         </div>
@@ -2590,7 +2606,7 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
 
             <ul>
 
-                <li>📍 Parsoli, Rajasthan</li>
+                <li><a class="location-link" href="https://maps.app.goo.gl/pac8kCjvBVDBLhVFA" target="_blank" rel="noopener">📍 Aadhaar Center, Parsoli, Rajasthan</a></li>
 
                 <li>📞 7742041717</li>
 
