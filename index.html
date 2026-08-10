@@ -905,6 +905,26 @@ footer li{
 }
 
 /* =========================================================
+   SERVICE BOOK BUTTONS
+========================================================= */
+.service-book-btn{
+    width:calc(100% - 36px);
+    margin:0 18px 20px;
+    border:0;
+    border-radius:12px;
+    padding:13px 16px;
+    background:linear-gradient(135deg,#0b63c5,#087ad5);
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 8px 18px rgba(8,122,213,.18);
+    transition:transform .2s ease, box-shadow .2s ease;
+}
+.service-book-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(8,122,213,.24)}
+.service-book-btn.emitro-book{background:linear-gradient(135deg,#087f5b,#12a66f)}
+.service-book-btn.csc-book{background:linear-gradient(135deg,#5b3cc4,#7b55e8)}
+/* =========================================================
    RESPONSIVE
 ========================================================= */
 
@@ -1662,6 +1682,8 @@ footer{background:#04152f}
 
                 </div>
 
+                <button type="button" class="service-book-btn" onclick="openServiceBooking('Aadhaar')">📅 Book Aadhaar Service</button>
+
             </div>
 
 
@@ -1735,6 +1757,8 @@ footer{background:#04152f}
 
                 </div>
 
+                <button type="button" class="service-book-btn emitro-book" onclick="openServiceBooking('e-Mitra')">📅 Book e-Mitra Service</button>
+
             </div>
 
 
@@ -1805,6 +1829,8 @@ footer{background:#04152f}
                     </a>
 
                 </div>
+
+                <button type="button" class="service-book-btn csc-book" onclick="openServiceBooking('CSC')">📅 Book CSC Service</button>
 
             </div>
 
@@ -2441,16 +2467,42 @@ footer{background:#04152f}
 
                     <div class="popup-appointment-grid">
                         <div>
-                            <label for="popupAadhaarService">Aadhaar Service</label>
+                            <label for="popupAadhaarService">Service</label>
                             <select id="popupAadhaarService" required>
                                 <option value="">सेवा चुनें</option>
-                                <option>0 से 5 Year New Enrollment</option>
-                                <option>Mobile Number Update</option>
-                                <option>Email Update</option>
-                                <option>Address Update</option>
-                                <option>Aadhaar Print</option>
-                                <option>Aadhaar Documents Update</option>
-                                <option>Aadhaar Related Other Services</option>
+                                <optgroup label="Aadhaar Services">
+                                    <option>0 से 5 Year New Enrollment</option>
+                                    <option>Mobile Number Update</option>
+                                    <option>Email Update</option>
+                                    <option>Address Update</option>
+                                    <option>Aadhaar Print</option>
+                                    <option>Aadhaar Documents Update</option>
+                                    <option>Aadhaar Related Other Services</option>
+                                </optgroup>
+                                <optgroup label="e-Mitra Services">
+                                    <option>e-Mitra - बिजली बिल भुगतान</option>
+                                    <option>e-Mitra - पानी बिल भुगतान</option>
+                                    <option>e-Mitra - मोबाइल रिचार्ज</option>
+                                    <option>e-Mitra - ऑनलाइन आवेदन</option>
+                                    <option>e-Mitra - प्रमाण पत्र आवेदन</option>
+                                    <option>e-Mitra - जन आधार संबंधित सेवाएं</option>
+                                    <option>e-Mitra - पेंशन संबंधित सेवाएं</option>
+                                    <option>e-Mitra - सरकारी योजनाओं के आवेदन</option>
+                                    <option>e-Mitra - ऑनलाइन फीस भुगतान</option>
+                                    <option>e-Mitra - e-Mitra संबंधित सहायता</option>
+                                </optgroup>
+                                <optgroup label="CSC Services">
+                                    <option>CSC - PAN Card Services</option>
+                                    <option>CSC - Banking Services</option>
+                                    <option>CSC - Insurance Services</option>
+                                    <option>CSC - Pension Services</option>
+                                    <option>CSC - Ayushman Bharat Related Services</option>
+                                    <option>CSC - Digital Seva Services</option>
+                                    <option>CSC - Government Scheme Assistance</option>
+                                    <option>CSC - Online Form Services</option>
+                                    <option>CSC - Education Related Services</option>
+                                    <option>CSC - CSC Related Assistance</option>
+                                </optgroup>
                             </select>
                         </div>
                         <div>
@@ -2480,7 +2532,7 @@ footer{background:#04152f}
                         </div>
                     </div>
 
-                    <button type="submit" class="popup-appointment-submit">💬 WhatsApp पर Appointment Book करें</button>
+                    <button type="submit" class="popup-appointment-submit">💬 WhatsApp पर Booking Request भेजें</button>
                     <div class="popup-appointment-note">Request आपके WhatsApp पर भेजी जाएगी और final confirmation WhatsApp पर दी जाएगी।</div>
                 </form>
             </div>
@@ -2523,6 +2575,25 @@ function openPopup(){
 
 }
 
+
+function openServiceBooking(category){
+    const popup=document.getElementById('welcomePopup');
+    const box=document.getElementById('popupAppointmentBox');
+    const select=document.getElementById('popupAadhaarService');
+    if(!popup || !box || !select) return;
+    popup.classList.add('show');
+    box.classList.add('show');
+    select.value='';
+    select.setAttribute('data-category', category);
+    const title=document.querySelector('.popup-appointment-title');
+    if(title){ title.textContent='📅 '+category+' Service Booking'; }
+    const date=document.getElementById('popupAppointmentDate');
+    if(date){
+        const today=new Date();
+        date.min=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().split('T')[0];
+    }
+    box.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
 
 function togglePopupAppointment(){
     const box=document.getElementById('popupAppointmentBox');
@@ -2598,6 +2669,7 @@ if(popupAppointmentForm){
         const name=document.getElementById('popupApplicantName').value.trim();
         const mobile=document.getElementById('popupApplicantMobile').value.trim();
         const service=document.getElementById('popupAadhaarService').value;
+        const category=document.getElementById('popupAadhaarService').getAttribute('data-category') || 'Digital Service';
         const date=document.getElementById('popupAppointmentDate').value;
         const time=document.getElementById('popupAppointmentTime').value;
         const note=document.getElementById('popupAppointmentNote').value.trim();
@@ -2609,7 +2681,8 @@ if(popupAppointmentForm){
 
         const formattedDate=date.split('-').reverse().join('-');
         const message=[
-            '🪪 *Aadhaar Appointment Request*',
+            '📅 *Service Booking Request*',
+            '🏷️ *Category:* '+category,
             '',
             '👤 *Name:* '+name,
             '📱 *Mobile:* '+mobile,
@@ -2800,6 +2873,7 @@ document.querySelectorAll('a[href^="#"]')
         const name=document.getElementById('applicantName').value.trim();
         const mobile=document.getElementById('applicantMobile').value.trim();
         const service=document.getElementById('aadhaarService').value;
+        const category='Aadhaar';
         const date=document.getElementById('appointmentDate').value;
         const time=document.getElementById('appointmentTime').value;
         const note=document.getElementById('appointmentNote').value.trim();
@@ -2811,7 +2885,8 @@ document.querySelectorAll('a[href^="#"]')
 
         const formattedDate=date.split('-').reverse().join('-');
         const message=[
-            '🪪 *Aadhaar Appointment Request*',
+            '📅 *Service Booking Request*',
+            '🏷️ *Category:* '+category,
             '',
             '👤 *Name:* '+name,
             '📱 *Mobile:* '+mobile,
