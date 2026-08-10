@@ -1328,6 +1328,54 @@ body{background:linear-gradient(180deg,#f7fbff 0%,#f3f7fb 48%,#fff 100%);color:v
 @media(max-width:560px){.premium-strip{margin-top:0}.premium-strip-grid{grid-template-columns:1fr 1fr;gap:8px}.premium-stat{min-height:68px;padding:10px}.premium-stat strong{width:36px;height:36px;font-size:18px}.premium-stat b{font-size:12px}.premium-stat span{font-size:10px}.hero-trust-row{gap:6px}.hero-trust-row span{font-size:10px;padding:6px 8px}.premium-cta h2{font-size:21px}}
 </style>
 
+
+<style id="premium-sections-v3">
+/* Premium Quick Access / Popular Services / Why Choose Us */
+.section-header{position:relative;max-width:760px;margin:0 auto 38px;text-align:center}
+.section-header .small-title{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid rgba(11,94,215,.16);border-radius:999px;background:rgba(11,94,215,.06);color:#0b5ed7;font-weight:800;letter-spacing:.08em;font-size:11px;text-transform:uppercase;box-shadow:0 8px 24px rgba(7,27,58,.06)}
+.section-header .small-title:before{content:"✦";font-size:12px}
+.section-header h2{margin-top:14px;position:relative;display:inline-block}
+.section-header h2:after{content:"";display:block;width:58px;height:4px;border-radius:10px;margin:12px auto 0;background:linear-gradient(90deg,#0b5ed7,#18a8e8,#f4b942)}
+
+.quick-grid{gap:22px}
+.quick-card{position:relative;overflow:hidden;min-height:190px;padding:28px 24px;border:1px solid rgba(11,94,215,.12);border-radius:24px;background:linear-gradient(145deg,#fff,rgba(242,248,255,.92));box-shadow:0 14px 35px rgba(7,27,58,.08);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.quick-card:before{content:"";position:absolute;right:-45px;top:-55px;width:135px;height:135px;border-radius:50%;background:linear-gradient(135deg,rgba(24,168,232,.16),rgba(11,94,215,.03));transition:transform .35s ease}
+.quick-card:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,#0b5ed7,#18a8e8,#f4b942);transform:scaleX(.35);transform-origin:center;transition:transform .3s ease}
+.quick-card:hover{transform:translateY(-8px);box-shadow:0 22px 48px rgba(7,27,58,.14);border-color:rgba(11,94,215,.28)}
+.quick-card:hover:before{transform:scale(1.18)}
+.quick-card:hover:after{transform:scaleX(1)}
+.quick-icon{position:relative;z-index:1;width:58px;height:58px;display:grid;place-items:center;border-radius:18px;background:#fff;box-shadow:0 10px 25px rgba(7,27,58,.1);font-size:29px;margin-bottom:18px;border:1px solid rgba(11,94,215,.1)}
+.quick-card h3,.popular-card h3,.why-card h3{position:relative;z-index:1}
+.quick-card p{position:relative;z-index:1;color:#687788;margin-bottom:0}
+
+.popular-grid{gap:22px}
+.popular-card{position:relative;overflow:hidden;padding:28px 25px 25px;border:1px solid rgba(11,94,215,.11);border-radius:24px;background:#fff;box-shadow:0 14px 34px rgba(7,27,58,.07);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.popular-card:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,94,215,.045),transparent 45%,rgba(244,185,66,.055));pointer-events:none}
+.popular-card:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(7,27,58,.13);border-color:rgba(11,94,215,.25)}
+.popular-icon{position:relative;width:64px;height:64px;display:grid;place-items:center;border-radius:20px;background:linear-gradient(145deg,#edf6ff,#fff);font-size:31px;box-shadow:inset 0 0 0 1px rgba(11,94,215,.08),0 10px 22px rgba(7,27,58,.08);margin-bottom:18px}
+.popular-card p{color:#687788;line-height:1.65}
+.popular-card:after{content:"Book Service  →";display:inline-flex;margin-top:8px;padding:9px 13px;border-radius:10px;background:rgba(11,94,215,.07);color:#0b5ed7;font-size:12px;font-weight:800;transition:.25s ease}
+.popular-card:hover:after{background:#0b5ed7;color:#fff;transform:translateX(3px)}
+
+.why-section{background:linear-gradient(180deg,#f8fbff 0%,#fff 100%);position:relative;overflow:hidden}
+.why-section:before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:rgba(24,168,232,.06);right:-150px;top:20px}
+.why-grid{gap:22px;position:relative}
+.why-card{position:relative;overflow:hidden;padding:30px 27px 28px;border:1px solid rgba(11,94,215,.11);border-radius:24px;background:rgba(255,255,255,.9);box-shadow:0 14px 34px rgba(7,27,58,.07);transition:transform .3s ease,box-shadow .3s ease}
+.why-card:hover{transform:translateY(-7px);box-shadow:0 24px 48px rgba(7,27,58,.12)}
+.why-number{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#0b5ed7,#18a8e8);color:#fff;font-weight:900;font-size:14px;box-shadow:0 10px 22px rgba(11,94,215,.22);margin-bottom:20px}
+.why-card:nth-child(2) .why-number{background:linear-gradient(135deg,#067a62,#18b88d)}
+.why-card:nth-child(3) .why-number{background:linear-gradient(135deg,#d68b00,#f4b942)}
+.why-card p{color:#687788;line-height:1.7}
+.why-card:after{content:"✓";position:absolute;right:20px;top:20px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(11,94,215,.07);color:#0b5ed7;font-weight:900}
+
+@media(max-width:650px){
+ .quick-card,.popular-card,.why-card{border-radius:20px}
+ .quick-card{min-height:auto;padding:23px 20px}
+ .popular-card,.why-card{padding:23px 20px}
+ .section-header{margin-bottom:28px}
+}
+</style>
+
 </head>
 
 
