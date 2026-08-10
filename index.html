@@ -745,7 +745,9 @@ footer li{
 }
 
 .popup{
-    width:min(500px,100%);
+    width:min(680px,100%);
+    max-height:92vh;
+    overflow-y:auto;
     background:white;
     border-radius:18px;
     overflow:hidden;
@@ -821,6 +823,86 @@ footer li{
     flex-wrap:wrap;
 }
 
+
+
+.popup-appointment-toggle{
+    display:none;
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid #e4edf5;
+    text-align:left;
+}
+
+.popup-appointment-toggle.show{display:block;}
+
+.popup-appointment-title{
+    margin:0 0 12px;
+    color:#06448f;
+    font-size:20px;
+    text-align:center;
+}
+
+.popup-appointment-form{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+}
+
+.popup-appointment-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:11px;
+}
+
+.popup-appointment-form label{
+    display:block;
+    margin-bottom:5px;
+    font-size:12px;
+    font-weight:700;
+    color:#284b68;
+}
+
+.popup-appointment-form input,
+.popup-appointment-form select{
+    width:100%;
+    box-sizing:border-box;
+    padding:11px 12px;
+    border:1px solid #d8e4ef;
+    border-radius:10px;
+    background:#fff;
+    color:#243b53;
+    font:inherit;
+    outline:none;
+}
+
+.popup-appointment-form input:focus,
+.popup-appointment-form select:focus{
+    border-color:#2196f3;
+    box-shadow:0 0 0 3px rgba(33,150,243,.10);
+}
+
+.popup-appointment-submit{
+    border:0;
+    border-radius:10px;
+    padding:12px 15px;
+    background:linear-gradient(135deg,#128c7e,#25d366);
+    color:#fff;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.popup-appointment-note{
+    font-size:11px;
+    color:#718096;
+    text-align:center;
+    line-height:1.4;
+}
+
+@media(max-width:600px){
+    .popup{max-height:94vh;}
+    .popup-appointment-grid{grid-template-columns:1fr;}
+    .popup-body{padding:20px;}
+}
 
 /* =========================================================
    RESPONSIVE
@@ -2332,6 +2414,75 @@ footer{background:#04152f}
                     💬 WhatsApp
                 </a>
 
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="togglePopupAppointment()"
+                >
+                    📅 Book Appointment
+                </button>
+
+            </div>
+
+            <div class="popup-appointment-toggle" id="popupAppointmentBox">
+                <h3 class="popup-appointment-title">📅 Aadhaar Appointment Booking</h3>
+
+                <form id="popupAppointmentForm" class="popup-appointment-form">
+                    <div class="popup-appointment-grid">
+                        <div>
+                            <label for="popupApplicantName">Applicant Name</label>
+                            <input id="popupApplicantName" type="text" placeholder="पूरा नाम लिखें" required>
+                        </div>
+                        <div>
+                            <label for="popupApplicantMobile">Mobile Number</label>
+                            <input id="popupApplicantMobile" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10 अंकों का मोबाइल नंबर" required>
+                        </div>
+                    </div>
+
+                    <div class="popup-appointment-grid">
+                        <div>
+                            <label for="popupAadhaarService">Aadhaar Service</label>
+                            <select id="popupAadhaarService" required>
+                                <option value="">सेवा चुनें</option>
+                                <option>0 से 5 Year New Enrollment</option>
+                                <option>Mobile Number Update</option>
+                                <option>Email Update</option>
+                                <option>Address Update</option>
+                                <option>Aadhaar Print</option>
+                                <option>Aadhaar Documents Update</option>
+                                <option>Aadhaar Related Other Services</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="popupAppointmentDate">Preferred Date</label>
+                            <input id="popupAppointmentDate" type="date" required>
+                        </div>
+                    </div>
+
+                    <div class="popup-appointment-grid">
+                        <div>
+                            <label for="popupAppointmentTime">Preferred Time</label>
+                            <select id="popupAppointmentTime" required>
+                                <option value="">समय चुनें</option>
+                                <option>09:00 AM - 10:00 AM</option>
+                                <option>10:00 AM - 11:00 AM</option>
+                                <option>11:00 AM - 12:00 PM</option>
+                                <option>12:00 PM - 01:00 PM</option>
+                                <option>02:00 PM - 03:00 PM</option>
+                                <option>03:00 PM - 04:00 PM</option>
+                                <option>04:00 PM - 05:00 PM</option>
+                                <option>05:00 PM - 06:00 PM</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="popupAppointmentNote">Additional Note <span>(Optional)</span></label>
+                            <input id="popupAppointmentNote" type="text" placeholder="कोई जरूरी जानकारी हो तो लिखें">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="popup-appointment-submit">💬 WhatsApp पर Appointment Book करें</button>
+                    <div class="popup-appointment-note">Request आपके WhatsApp पर भेजी जाएगी और final confirmation WhatsApp पर दी जाएगी।</div>
+                </form>
             </div>
 
         </div>
@@ -2372,6 +2523,20 @@ function openPopup(){
 
 }
 
+
+function togglePopupAppointment(){
+    const box=document.getElementById('popupAppointmentBox');
+    if(!box) return;
+    box.classList.toggle('show');
+    if(box.classList.contains('show')){
+        const date=document.getElementById('popupAppointmentDate');
+        if(date){
+            const today=new Date();
+            date.min=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().split('T')[0];
+        }
+        box.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+}
 
 function closePopup(){
 
@@ -2424,6 +2589,41 @@ document.addEventListener("keydown", function(event){
 
 });
 
+
+
+const popupAppointmentForm=document.getElementById('popupAppointmentForm');
+if(popupAppointmentForm){
+    popupAppointmentForm.addEventListener('submit',function(e){
+        e.preventDefault();
+        const name=document.getElementById('popupApplicantName').value.trim();
+        const mobile=document.getElementById('popupApplicantMobile').value.trim();
+        const service=document.getElementById('popupAadhaarService').value;
+        const date=document.getElementById('popupAppointmentDate').value;
+        const time=document.getElementById('popupAppointmentTime').value;
+        const note=document.getElementById('popupAppointmentNote').value.trim();
+
+        if(!/^[0-9]{10}$/.test(mobile)){
+            alert('कृपया 10 अंकों का सही मोबाइल नंबर दर्ज करें।');
+            return;
+        }
+
+        const formattedDate=date.split('-').reverse().join('-');
+        const message=[
+            '🪪 *Aadhaar Appointment Request*',
+            '',
+            '👤 *Name:* '+name,
+            '📱 *Mobile:* '+mobile,
+            '🛠️ *Service:* '+service,
+            '📅 *Preferred Date:* '+formattedDate,
+            '⏰ *Preferred Time:* '+time,
+            note ? '📝 *Note:* '+note : '',
+            '',
+            'Please confirm my appointment.'
+        ].filter(Boolean).join('\n');
+
+        window.open('https://wa.me/917742041717?text='+encodeURIComponent(message),'_blank','noopener');
+    });
+}
 
 
 /* =========================================================
