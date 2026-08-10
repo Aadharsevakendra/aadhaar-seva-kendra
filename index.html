@@ -1174,6 +1174,33 @@ footer{background:#04152f}
  .search-section{margin-top:-25px}
  .section{padding:65px 0}
 }
+
+
+/* =========================================================
+   AADHAAR APPOINTMENT BOOKING
+========================================================= */
+.aadhaar-appointment{margin:28px 0 34px;padding:0 0 4px;scroll-margin-top:90px}
+.appointment-inner{max-width:1180px;margin:0 auto;padding:30px;display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,.75fr);gap:24px;border-radius:24px;background:linear-gradient(135deg,#eef6ff,#f8fbff);border:1px solid rgba(25,118,210,.16);box-shadow:0 16px 45px rgba(25,79,125,.10)}
+.appointment-content{padding:4px}
+.appointment-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:#e3f2fd;color:#0d6efd;font-size:13px;font-weight:700;margin-bottom:10px}
+.appointment-content h2{margin:0 0 8px;font-size:30px;color:#123b63}
+.appointment-content>p{margin:0 0 20px;color:#60758a;line-height:1.6}
+.appointment-form{display:flex;flex-direction:column;gap:14px}
+.appointment-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.appointment-field{display:flex;flex-direction:column;gap:7px}
+.appointment-field label{font-size:13px;font-weight:700;color:#284b68}
+.appointment-field label span{font-weight:500;color:#8b9aaa}
+.appointment-field input,.appointment-field select{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #d8e4ef;border-radius:12px;background:#fff;color:#243b53;font:inherit;outline:none;transition:.2s}
+.appointment-field input:focus,.appointment-field select:focus{border-color:#2196f3;box-shadow:0 0 0 4px rgba(33,150,243,.10)}
+.appointment-submit{border:0;border-radius:12px;padding:14px 18px;background:linear-gradient(135deg,#128c7e,#25d366);color:#fff;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 10px 22px rgba(18,140,126,.20);transition:transform .2s,box-shadow .2s}
+.appointment-submit:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(18,140,126,.25)}
+.appointment-note{font-size:12px;color:#718096;line-height:1.5;text-align:center}
+.appointment-side{display:flex;flex-direction:column;justify-content:center;padding:25px;border-radius:20px;background:#fff;border:1px solid #e1ebf3;box-shadow:0 10px 28px rgba(37,67,92,.07)}
+.appointment-side-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:#e8f3ff;font-size:28px;margin-bottom:15px}
+.appointment-side h3{margin:0 0 8px;color:#123b63;font-size:20px}
+.appointment-side p{margin:0 0 18px;color:#687b8d;line-height:1.6;font-size:14px}
+.appointment-side-list{display:flex;flex-direction:column;gap:10px;color:#36546d;font-size:14px;font-weight:600}
+@media(max-width:800px){.appointment-inner{grid-template-columns:1fr;padding:20px}.appointment-row{grid-template-columns:1fr}.appointment-content h2{font-size:25px}.appointment-side{padding:20px}}
 </style>
 
 </head>
@@ -1556,6 +1583,91 @@ footer{background:#04152f}
             </div>
 
 
+
+
+
+            <!-- ================= AADHAAR APPOINTMENT ================= -->
+
+            <section class="aadhaar-appointment" id="aadhaar-appointment">
+                <div class="appointment-inner">
+                    <div class="appointment-content">
+                        <div class="appointment-badge">🪪 Aadhaar Service</div>
+                        <h2>Book Aadhaar Appointment</h2>
+                        <p>अपनी सुविधा के अनुसार जानकारी भरें और appointment request सीधे WhatsApp पर भेजें।</p>
+
+                        <form id="aadhaarAppointmentForm" class="appointment-form">
+                            <div class="appointment-row">
+                                <div class="appointment-field">
+                                    <label for="applicantName">Applicant Name</label>
+                                    <input id="applicantName" name="name" type="text" placeholder="पूरा नाम लिखें" required>
+                                </div>
+                                <div class="appointment-field">
+                                    <label for="applicantMobile">Mobile Number</label>
+                                    <input id="applicantMobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर" required>
+                                </div>
+                            </div>
+
+                            <div class="appointment-row">
+                                <div class="appointment-field">
+                                    <label for="aadhaarService">Aadhaar Service</label>
+                                    <select id="aadhaarService" name="service" required>
+                                        <option value="">सेवा चुनें</option>
+                                        <option>0 से 5 Year New Enrollment</option>
+                                        <option>Mobile Number Update</option>
+                                        <option>Email Update</option>
+                                        <option>Address Update</option>
+                                        <option>Aadhaar Print</option>
+                                        <option>Aadhaar Documents Update</option>
+                                        <option>Aadhaar Related Other Services</option>
+                                    </select>
+                                </div>
+                                <div class="appointment-field">
+                                    <label for="appointmentDate">Preferred Date</label>
+                                    <input id="appointmentDate" name="date" type="date" required>
+                                </div>
+                            </div>
+
+                            <div class="appointment-row">
+                                <div class="appointment-field">
+                                    <label for="appointmentTime">Preferred Time</label>
+                                    <select id="appointmentTime" name="time" required>
+                                        <option value="">समय चुनें</option>
+                                        <option>09:00 AM - 10:00 AM</option>
+                                        <option>10:00 AM - 11:00 AM</option>
+                                        <option>11:00 AM - 12:00 PM</option>
+                                        <option>12:00 PM - 01:00 PM</option>
+                                        <option>02:00 PM - 03:00 PM</option>
+                                        <option>03:00 PM - 04:00 PM</option>
+                                        <option>04:00 PM - 05:00 PM</option>
+                                        <option>05:00 PM - 06:00 PM</option>
+                                    </select>
+                                </div>
+                                <div class="appointment-field">
+                                    <label for="appointmentNote">Additional Note <span>(Optional)</span></label>
+                                    <input id="appointmentNote" name="note" type="text" placeholder="कोई जरूरी जानकारी हो तो लिखें">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="appointment-submit">
+                                💬 Appointment Book करें
+                            </button>
+                            <div class="appointment-note">आपकी request WhatsApp पर भेजी जाएगी। Appointment की final confirmation WhatsApp पर दी जाएगी।</div>
+                        </form>
+                    </div>
+
+                    <div class="appointment-side">
+                        <div class="appointment-side-icon">📅</div>
+                        <h3>Easy Appointment Booking</h3>
+                        <p>नाम, सेवा, तारीख और समय चुनें और एक क्लिक में WhatsApp पर request भेजें।</p>
+                        <div class="appointment-side-list">
+                            <div>✓ Quick WhatsApp Request</div>
+                            <div>✓ Preferred Date & Time</div>
+                            <div>✓ Aadhaar Services</div>
+                            <div>✓ Direct Centre Assistance</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- ================= E-MITRA ================= -->
 
@@ -2467,6 +2579,52 @@ document.querySelectorAll('a[href^="#"]')
     });
   },{threshold:.12});
   items.forEach(el=>io.observe(el));
+})();
+</script>
+
+
+
+<script id="aadhaar-appointment-script">
+(function(){
+    const form=document.getElementById('aadhaarAppointmentForm');
+    const dateInput=document.getElementById('appointmentDate');
+    if(!form || !dateInput) return;
+
+    const today=new Date();
+    const localDate=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().split('T')[0];
+    dateInput.min=localDate;
+
+    form.addEventListener('submit',function(e){
+        e.preventDefault();
+        const name=document.getElementById('applicantName').value.trim();
+        const mobile=document.getElementById('applicantMobile').value.trim();
+        const service=document.getElementById('aadhaarService').value;
+        const date=document.getElementById('appointmentDate').value;
+        const time=document.getElementById('appointmentTime').value;
+        const note=document.getElementById('appointmentNote').value.trim();
+
+        if(!/^[0-9]{10}$/.test(mobile)){
+            alert('कृपया 10 अंकों का सही मोबाइल नंबर दर्ज करें।');
+            return;
+        }
+
+        const formattedDate=date.split('-').reverse().join('-');
+        const message=[
+            '🪪 *Aadhaar Appointment Request*',
+            '',
+            '👤 *Name:* '+name,
+            '📱 *Mobile:* '+mobile,
+            '🛠️ *Service:* '+service,
+            '📅 *Preferred Date:* '+formattedDate,
+            '⏰ *Preferred Time:* '+time,
+            note ? '📝 *Note:* '+note : '',
+            '',
+            'Please confirm my appointment.'
+        ].filter(Boolean).join('\n');
+
+        const whatsappUrl='https://wa.me/917742041717?text='+encodeURIComponent(message);
+        window.open(whatsappUrl,'_blank','noopener');
+    });
 })();
 </script>
 
