@@ -1179,7 +1179,7 @@ footer{background:#04152f}
 /* =========================================================
    AADHAAR APPOINTMENT BOOKING
 ========================================================= */
-.aadhaar-appointment{margin:28px 0 34px;padding:0 0 4px;scroll-margin-top:90px}
+.aadhaar-appointment{grid-column:1 / -1;margin:28px 0 34px;padding:0 0 4px;scroll-margin-top:90px}
 .appointment-inner{max-width:1180px;margin:0 auto;padding:30px;display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,.75fr);gap:24px;border-radius:24px;background:linear-gradient(135deg,#eef6ff,#f8fbff);border:1px solid rgba(25,118,210,.16);box-shadow:0 16px 45px rgba(25,79,125,.10)}
 .appointment-content{padding:4px}
 .appointment-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:#e3f2fd;color:#0d6efd;font-size:13px;font-weight:700;margin-bottom:10px}
@@ -1586,89 +1586,6 @@ footer{background:#04152f}
 
 
 
-            <!-- ================= AADHAAR APPOINTMENT ================= -->
-
-            <section class="aadhaar-appointment" id="aadhaar-appointment">
-                <div class="appointment-inner">
-                    <div class="appointment-content">
-                        <div class="appointment-badge">🪪 Aadhaar Service</div>
-                        <h2>Book Aadhaar Appointment</h2>
-                        <p>अपनी सुविधा के अनुसार जानकारी भरें और appointment request सीधे WhatsApp पर भेजें।</p>
-
-                        <form id="aadhaarAppointmentForm" class="appointment-form">
-                            <div class="appointment-row">
-                                <div class="appointment-field">
-                                    <label for="applicantName">Applicant Name</label>
-                                    <input id="applicantName" name="name" type="text" placeholder="पूरा नाम लिखें" required>
-                                </div>
-                                <div class="appointment-field">
-                                    <label for="applicantMobile">Mobile Number</label>
-                                    <input id="applicantMobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर" required>
-                                </div>
-                            </div>
-
-                            <div class="appointment-row">
-                                <div class="appointment-field">
-                                    <label for="aadhaarService">Aadhaar Service</label>
-                                    <select id="aadhaarService" name="service" required>
-                                        <option value="">सेवा चुनें</option>
-                                        <option>0 से 5 Year New Enrollment</option>
-                                        <option>Mobile Number Update</option>
-                                        <option>Email Update</option>
-                                        <option>Address Update</option>
-                                        <option>Aadhaar Print</option>
-                                        <option>Aadhaar Documents Update</option>
-                                        <option>Aadhaar Related Other Services</option>
-                                    </select>
-                                </div>
-                                <div class="appointment-field">
-                                    <label for="appointmentDate">Preferred Date</label>
-                                    <input id="appointmentDate" name="date" type="date" required>
-                                </div>
-                            </div>
-
-                            <div class="appointment-row">
-                                <div class="appointment-field">
-                                    <label for="appointmentTime">Preferred Time</label>
-                                    <select id="appointmentTime" name="time" required>
-                                        <option value="">समय चुनें</option>
-                                        <option>09:00 AM - 10:00 AM</option>
-                                        <option>10:00 AM - 11:00 AM</option>
-                                        <option>11:00 AM - 12:00 PM</option>
-                                        <option>12:00 PM - 01:00 PM</option>
-                                        <option>02:00 PM - 03:00 PM</option>
-                                        <option>03:00 PM - 04:00 PM</option>
-                                        <option>04:00 PM - 05:00 PM</option>
-                                        <option>05:00 PM - 06:00 PM</option>
-                                    </select>
-                                </div>
-                                <div class="appointment-field">
-                                    <label for="appointmentNote">Additional Note <span>(Optional)</span></label>
-                                    <input id="appointmentNote" name="note" type="text" placeholder="कोई जरूरी जानकारी हो तो लिखें">
-                                </div>
-                            </div>
-
-                            <button type="submit" class="appointment-submit">
-                                💬 Appointment Book करें
-                            </button>
-                            <div class="appointment-note">आपकी request WhatsApp पर भेजी जाएगी। Appointment की final confirmation WhatsApp पर दी जाएगी।</div>
-                        </form>
-                    </div>
-
-                    <div class="appointment-side">
-                        <div class="appointment-side-icon">📅</div>
-                        <h3>Easy Appointment Booking</h3>
-                        <p>नाम, सेवा, तारीख और समय चुनें और एक क्लिक में WhatsApp पर request भेजें।</p>
-                        <div class="appointment-side-list">
-                            <div>✓ Quick WhatsApp Request</div>
-                            <div>✓ Preferred Date & Time</div>
-                            <div>✓ Aadhaar Services</div>
-                            <div>✓ Direct Centre Assistance</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- ================= E-MITRA ================= -->
 
             <div
@@ -1808,6 +1725,90 @@ footer{background:#04152f}
                 </div>
 
             </div>
+
+
+                    <!-- ================= AADHAAR APPOINTMENT ================= -->
+        
+                    <section class="aadhaar-appointment" id="aadhaar-appointment">
+                        <div class="appointment-inner">
+                            <div class="appointment-content">
+                                <div class="appointment-badge">🪪 Aadhaar Service</div>
+                                <h2>Book Aadhaar Appointment</h2>
+                                <p>अपनी सुविधा के अनुसार जानकारी भरें और appointment request सीधे WhatsApp पर भेजें।</p>
+        
+                                <form id="aadhaarAppointmentForm" class="appointment-form">
+                                    <div class="appointment-row">
+                                        <div class="appointment-field">
+                                            <label for="applicantName">Applicant Name</label>
+                                            <input id="applicantName" name="name" type="text" placeholder="पूरा नाम लिखें" required>
+                                        </div>
+                                        <div class="appointment-field">
+                                            <label for="applicantMobile">Mobile Number</label>
+                                            <input id="applicantMobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर" required>
+                                        </div>
+                                    </div>
+        
+                                    <div class="appointment-row">
+                                        <div class="appointment-field">
+                                            <label for="aadhaarService">Aadhaar Service</label>
+                                            <select id="aadhaarService" name="service" required>
+                                                <option value="">सेवा चुनें</option>
+                                                <option>0 से 5 Year New Enrollment</option>
+                                                <option>Mobile Number Update</option>
+                                                <option>Email Update</option>
+                                                <option>Address Update</option>
+                                                <option>Aadhaar Print</option>
+                                                <option>Aadhaar Documents Update</option>
+                                                <option>Aadhaar Related Other Services</option>
+                                            </select>
+                                        </div>
+                                        <div class="appointment-field">
+                                            <label for="appointmentDate">Preferred Date</label>
+                                            <input id="appointmentDate" name="date" type="date" required>
+                                        </div>
+                                    </div>
+        
+                                    <div class="appointment-row">
+                                        <div class="appointment-field">
+                                            <label for="appointmentTime">Preferred Time</label>
+                                            <select id="appointmentTime" name="time" required>
+                                                <option value="">समय चुनें</option>
+                                                <option>09:00 AM - 10:00 AM</option>
+                                                <option>10:00 AM - 11:00 AM</option>
+                                                <option>11:00 AM - 12:00 PM</option>
+                                                <option>12:00 PM - 01:00 PM</option>
+                                                <option>02:00 PM - 03:00 PM</option>
+                                                <option>03:00 PM - 04:00 PM</option>
+                                                <option>04:00 PM - 05:00 PM</option>
+                                                <option>05:00 PM - 06:00 PM</option>
+                                            </select>
+                                        </div>
+                                        <div class="appointment-field">
+                                            <label for="appointmentNote">Additional Note <span>(Optional)</span></label>
+                                            <input id="appointmentNote" name="note" type="text" placeholder="कोई जरूरी जानकारी हो तो लिखें">
+                                        </div>
+                                    </div>
+        
+                                    <button type="submit" class="appointment-submit">
+                                        💬 WhatsApp पर Appointment Book करें
+                                    </button>
+                                    <div class="appointment-note">आपकी request WhatsApp पर भेजी जाएगी। Appointment की final confirmation WhatsApp पर दी जाएगी।</div>
+                                </form>
+                            </div>
+        
+                            <div class="appointment-side">
+                                <div class="appointment-side-icon">📅</div>
+                                <h3>Easy Appointment Booking</h3>
+                                <p>नाम, सेवा, तारीख और समय चुनें और एक क्लिक में WhatsApp पर request भेजें।</p>
+                                <div class="appointment-side-list">
+                                    <div>✓ Quick WhatsApp Request</div>
+                                    <div>✓ Preferred Date & Time</div>
+                                    <div>✓ Aadhaar Services</div>
+                                    <div>✓ Direct Centre Assistance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
 
         </div>
